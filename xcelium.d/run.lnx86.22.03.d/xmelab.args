@@ -4,6 +4,8 @@
 //
 -timescale
 1ns/1ps
+-ACCESS
++r
 -MESSAGES
 -XLMODE
 ./xcelium.d/run.lnx86.22.03.d

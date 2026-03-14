@@ -5,6 +5,8 @@
 -sv
 -timescale
 1ns/1ps
+-access
++r
 rtl/pe.sv
 rtl/input_skew.sv
 rtl/systolic_array.sv

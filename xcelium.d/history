@@ -14,3 +14,4 @@ s9::(13Mar2026:19:18:10):( xrun -sv -timescale 1ns/1ps " rtl/pe.sv" " rtl/input_
 s10::(13Mar2026:19:19:18):( xrun -sv -timescale 1ns/1ps " rtl/pe.sv" " rtl/input_skew.sv" " rtl/systolic_array.sv" " rtl/controller.sv" " rtl/mm_accelerator_top.sv" " tb/directed/tb_mm_accelerator.sv" )
 s11::(13Mar2026:19:20:18):( xrun -sv -timescale 1ns/1ps " rtl/pe.sv" " rtl/input_skew.sv" " rtl/systolic_array.sv" " rtl/controller.sv" " rtl/mm_accelerator_top.sv" " tb/directed/tb_mm_accelerator.sv" )
 s12::(13Mar2026:19:21:01):( xrun -sv -timescale 1ns/1ps " rtl/pe.sv" " rtl/input_skew.sv" " rtl/systolic_array.sv" " rtl/controller.sv" " rtl/mm_accelerator_top.sv" " tb/directed/tb_mm_accelerator.sv" )
+s13::(13Mar2026:19:38:14):( xrun -sv -timescale 1ns/1ps -access +r " rtl/pe.sv" " rtl/input_skew.sv" " rtl/systolic_array.sv" " rtl/controller.sv" " rtl/mm_accelerator_top.sv" " tb/directed/tb_mm_accelerator.sv" )
