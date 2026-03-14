@@ -1,0 +1,80 @@
+xrun: 22.03-s012: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
+TOOL:	xrun	22.03-s012: Started on Mar 13, 2026 at 19:21:01 CDT
+xrun
+	-sv
+	-timescale 1ns/1ps
+	rtl/pe.sv
+	rtl/input_skew.sv
+	rtl/systolic_array.sv
+	rtl/controller.sv
+	rtl/mm_accelerator_top.sv
+	tb/directed/tb_mm_accelerator.sv
+Recompiling... reason: file './rtl/controller.sv' is newer than expected.
+	expected: Fri Mar 13 18:32:44 2026
+	actual:   Fri Mar 13 19:17:40 2026
+file: rtl/systolic_array.sv
+	module worklib.systolic_array:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		tb_mm_accelerator
+xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.controller:sv <0x12683de9>
+			streams:   5, words:  1943
+		worklib.systolic_array:sv <0x0f73bc49>
+			streams:  12, words: 14269
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                21       6
+		Registers:             151      91
+		Scalar wires:           30       -
+		Vectored wires:         88       -
+		Always blocks:          21       6
+		Initial blocks:          3       3
+		Cont. assignments:      33       7
+		Pseudo assignments:     22       7
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.tb_mm_accelerator:sv
+Loading snapshot worklib.tb_mm_accelerator:sv .................... Done
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+xcelium> source /opt/coe/cadence/XCELIUM/tools/xcelium/files/xmsimrc
+xcelium> run
+xmsim: *W,SHMPAAX: some objects excluded from $shm_probe due to access restrictions, use +access+r on command line for access to all objects.
+            File: ./tb/directed/tb_mm_accelerator.sv, line = 187, pos = 17
+           Scope: tb_mm_accelerator
+            Time: 0 FS + 0
+
+
+========================================
+TEST: All-Zeros
+========================================
+  PASS — all 16 elements match
+
+========================================
+TEST: Identity x Identity
+========================================
+  PASS — all 16 elements match
+
+========================================
+TEST: All-Ones
+========================================
+  PASS — all 16 elements match
+
+========================================
+TEST: Known Random Values
+========================================
+  PASS — all 16 elements match
+
+========================================
+All tests complete
+========================================
+
+Simulation complete via $finish(1) at time 795 NS + 0
+./tb/directed/tb_mm_accelerator.sv:232         $finish;
+xcelium> exit
+TOOL:	xrun	22.03-s012: Exiting on Mar 13, 2026 at 19:21:04 CDT  (total: 00:00:03)

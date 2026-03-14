@@ -1,0 +1,16 @@
+//
+// File created by:  xrun
+// Do not modify this file
+
+s1::(13Mar2026:18:43:27):( xrun -sv " rtl/pe.sv" )
+s2::(13Mar2026:18:44:25):( xrun -sv " rtl/pe.sv" " rtl/input_skew.sv" " rtl/systolic_array.sv" " rtl/controller.sv" " rtl/mm_accelerator_top.sv" " tb/directed/tb_mm_accelerator.sv" )
+s3::(13Mar2026:18:49:16):( xrun -sv -timescale 1ns/1ps " rtl/pe.sv" " rtl/input_skew.sv" " rtl/systolic_array.sv" " rtl/controller.sv" " rtl/mm_accelerator_top.sv" " tb/directed/tb_mm_accelerator.sv" )
+s4::(13Mar2026:18:51:22):( xrun -sv -timescale 1ns/1ps " rtl/pe.sv" " rtl/input_skew.sv" " rtl/systolic_array.sv" " rtl/controller.sv" " rtl/mm_accelerator_top.sv" " tb/directed/tb_mm_accelerator.sv" )
+s5::(13Mar2026:19:07:23):( xrun -sv -timescale 1ns/1ps " rtl/pe.sv" " rtl/input_skew.sv" " rtl/systolic_array.sv" " rtl/controller.sv" " rtl/mm_accelerator_top.sv" " tb/directed/tb_mm_accelerator.sv" )
+s6::(13Mar2026:19:07:54):( xrun -sv -timescale 1ns/1ps " rtl/pe.sv" " rtl/input_skew.sv" " rtl/systolic_array.sv" " rtl/controller.sv" " rtl/mm_accelerator_top.sv" " tb/directed/tb_mm_accelerator.sv" )
+s7::(13Mar2026:19:09:17):( xrun -sv -timescale 1ns/1ps " rtl/pe.sv" " rtl/input_skew.sv" " rtl/systolic_array.sv" " rtl/controller.sv" " rtl/mm_accelerator_top.sv" " tb/directed/tb_mm_accelerator.sv" )
+s8::(13Mar2026:19:17:45):( xrun -sv -timescale 1ns/1ps " rtl/pe.sv" " rtl/input_skew.sv" " rtl/systolic_array.sv" " rtl/controller.sv" " rtl/mm_accelerator_top.sv" " tb/directed/tb_mm_accelerator.sv" )
+s9::(13Mar2026:19:18:10):( xrun -sv -timescale 1ns/1ps " rtl/pe.sv" " rtl/input_skew.sv" " rtl/systolic_array.sv" " rtl/controller.sv" " rtl/mm_accelerator_top.sv" " tb/directed/tb_mm_accelerator.sv" )
+s10::(13Mar2026:19:19:18):( xrun -sv -timescale 1ns/1ps " rtl/pe.sv" " rtl/input_skew.sv" " rtl/systolic_array.sv" " rtl/controller.sv" " rtl/mm_accelerator_top.sv" " tb/directed/tb_mm_accelerator.sv" )
+s11::(13Mar2026:19:20:18):( xrun -sv -timescale 1ns/1ps " rtl/pe.sv" " rtl/input_skew.sv" " rtl/systolic_array.sv" " rtl/controller.sv" " rtl/mm_accelerator_top.sv" " tb/directed/tb_mm_accelerator.sv" )
+s12::(13Mar2026:19:21:01):( xrun -sv -timescale 1ns/1ps " rtl/pe.sv" " rtl/input_skew.sv" " rtl/systolic_array.sv" " rtl/controller.sv" " rtl/mm_accelerator_top.sv" " tb/directed/tb_mm_accelerator.sv" )

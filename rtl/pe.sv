@@ -19,11 +19,11 @@ always @(posedge clk)
 	end	
 	else begin
 		valid_out <= valid_in;
-		
+	
+		a_out	  <= a_in;
+		b_out	  <= b_in;
 		if(valid_in) begin
-			accum	  <= accum + a_in * b_in;
-			a_out	  <= a_in;
-			b_out	  <= b_in;
+			accum <= accum + a_in * b_in;
 		end
 	end
 endmodule

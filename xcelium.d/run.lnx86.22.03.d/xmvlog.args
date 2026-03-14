@@ -1,0 +1,23 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-XLMODE
+./xcelium.d/run.lnx86.22.03.d
+-RUNMODE
+-sv
+rtl/pe.sv
+rtl/input_skew.sv
+rtl/systolic_array.sv
+rtl/controller.sv
+rtl/mm_accelerator_top.sv
+tb/directed/tb_mm_accelerator.sv
+-CDSLIB
+./xcelium.d/run.lnx86.22.03.d/cdsrun.lib
+-HDLVAR
+./xcelium.d/run.lnx86.22.03.d/hdlrun.var
+-MESSAGES
+-UPDATE
+-XLLIBSTORE
+./xcelium.d/run.lnx86.22.03.d/xllibs
+-ALLOWUNBOUND
