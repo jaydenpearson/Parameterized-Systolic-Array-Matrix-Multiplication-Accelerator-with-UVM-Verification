@@ -8,6 +8,11 @@
 1ns/1ps
 -access
 +r
+-coverage
+all
+-covdut
+tb_top
+-covoverwrite
 -incdir
 tb/uvm/top
 -incdir

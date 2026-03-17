@@ -6,3 +6,7 @@
 1ns/1ps
 -ACCESS
 +r
+-COVERAGE
+all
+-COVDUT
+tb_top
