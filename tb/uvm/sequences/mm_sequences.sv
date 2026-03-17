@@ -164,6 +164,210 @@ class mm_stress_seq extends mm_base_seq;
 
 endclass
 
+// try and get 100% functional coverage
+class mm_coverage_directed_seq extends mm_base_seq;
+
+    `uvm_object_utils(mm_coverage_directed_seq)
+
+    function new(string name = "mm_coverage_directed_seq");
+        super.new(name);
+    endfunction
+
+    task body();
+        mm_seq_item item;
+
+        // small A x large B
+        item = mm_seq_item::type_id::create("item");
+        start_item(item);
+        if (!item.randomize() with {
+            foreach (A[i,j]) A[i][j] inside {[1:15]};
+            foreach (B[i,j]) B[i][j] inside {[128:254]};
+        }) `uvm_fatal("RAND_FAIL", "randomization failed")
+        finish_item(item);
+
+        // large A x small B
+        item = mm_seq_item::type_id::create("item");
+        start_item(item);
+        if (!item.randomize() with {
+            foreach (A[i,j]) A[i][j] inside {[128:254]};
+            foreach (B[i,j]) B[i][j] inside {[1:15]};
+        }) `uvm_fatal("RAND_FAIL", "randomization failed")
+        finish_item(item);
+
+        // max A x zero B
+        item = mm_seq_item::type_id::create("item");
+        start_item(item);
+	item.non_zero_B.constraint_mode(0);
+        if (!item.randomize() with {
+            foreach (A[i,j]) A[i][j] == 255;
+            foreach (B[i,j]) B[i][j] == 0;
+        }) `uvm_fatal("RAND_FAIL", "randomization failed")
+	item.non_zero_B.constraint_mode(1);
+        finish_item(item);
+
+        // zero A x max B
+        item = mm_seq_item::type_id::create("item");
+        start_item(item);
+	item.non_zero_A.constraint_mode(0);
+        if (!item.randomize() with {
+            foreach (A[i,j]) A[i][j] == 0;
+            foreach (B[i,j]) B[i][j] == 255;
+        }) `uvm_fatal("RAND_FAIL", "randomization failed")
+	item.non_zero_A.constraint_mode(1);
+        finish_item(item);
+
+        // mid A x mid B
+        item = mm_seq_item::type_id::create("item");
+        start_item(item);
+        if (!item.randomize() with {
+            foreach (A[i,j]) A[i][j] inside {[16:127]};
+            foreach (B[i,j]) B[i][j] inside {[16:127]};
+        }) `uvm_fatal("RAND_FAIL", "randomization failed")
+        finish_item(item);
+
+        // small A x mid B
+        item = mm_seq_item::type_id::create("item");
+        start_item(item);
+        if (!item.randomize() with {
+            foreach (A[i,j]) A[i][j] inside {[1:15]};
+            foreach (B[i,j]) B[i][j] inside {[16:127]};
+        }) `uvm_fatal("RAND_FAIL", "randomization failed")
+        finish_item(item);
+
+        // mid A x small B
+        item = mm_seq_item::type_id::create("item");
+        start_item(item);
+        if (!item.randomize() with {
+            foreach (A[i,j]) A[i][j] inside {[16:127]};
+            foreach (B[i,j]) B[i][j] inside {[1:15]};
+        }) `uvm_fatal("RAND_FAIL", "randomization failed")
+        finish_item(item);
+	
+	// max A x small B
+	item = mm_seq_item::type_id::create("item");
+	start_item(item);
+	if (!item.randomize() with {
+	    foreach (A[i,j]) A[i][j] == 255;
+	    foreach (B[i,j]) B[i][j] inside {[1:15]};
+	}) `uvm_fatal("RAND_FAIL", "randomization failed")
+	finish_item(item);
+
+	// small A x max B
+	item = mm_seq_item::type_id::create("item");
+	start_item(item);
+	if (!item.randomize() with {
+	    foreach (A[i,j]) A[i][j] inside {[1:15]};
+	    foreach (B[i,j]) B[i][j] == 255;
+	}) `uvm_fatal("RAND_FAIL", "randomization failed")
+	finish_item(item);
+	
+	// max A x mid B
+	item = mm_seq_item::type_id::create("item");
+	start_item(item);
+	if (!item.randomize() with {
+	    foreach (A[i,j]) A[i][j] == 255;
+	    foreach (B[i,j]) B[i][j] inside {[16:127]};
+	}) `uvm_fatal("RAND_FAIL", "randomization failed")
+	finish_item(item);
+
+	// mid A x max B
+	item = mm_seq_item::type_id::create("item");
+	start_item(item);
+	if (!item.randomize() with {
+	    foreach (A[i,j]) A[i][j] inside {[16:127]};
+	    foreach (B[i,j]) B[i][j] == 255;
+	}) `uvm_fatal("RAND_FAIL", "randomization failed")
+	finish_item(item);
+
+	// max A x large B
+	item = mm_seq_item::type_id::create("item");
+	start_item(item);
+	if (!item.randomize() with {
+	    foreach (A[i,j]) A[i][j] == 255;
+	    foreach (B[i,j]) B[i][j] inside {[128:254]};
+	}) `uvm_fatal("RAND_FAIL", "randomization failed")
+	finish_item(item);
+
+	// large A x max B
+	item = mm_seq_item::type_id::create("item");
+	start_item(item);
+	if (!item.randomize() with {
+	    foreach (A[i,j]) A[i][j] inside {[128:254]};
+	    foreach (B[i,j]) B[i][j] == 255;
+	}) `uvm_fatal("RAND_FAIL", "randomization failed")
+	finish_item(item);
+	
+	// zero A x small B — need to disable non_zero_A
+	item = mm_seq_item::type_id::create("item");
+	start_item(item);
+	item.non_zero_A.constraint_mode(0);
+	if (!item.randomize() with {
+	    foreach (A[i,j]) A[i][j] == 0;
+	    foreach (B[i,j]) B[i][j] inside {[1:15]};
+	}) `uvm_fatal("RAND_FAIL", "randomization failed")
+	item.non_zero_A.constraint_mode(1);
+	finish_item(item);
+
+	// zero A x mid B
+	item = mm_seq_item::type_id::create("item");
+	start_item(item);
+	item.non_zero_A.constraint_mode(0);
+	if (!item.randomize() with {
+	    foreach (A[i,j]) A[i][j] == 0;
+	    foreach (B[i,j]) B[i][j] inside {[16:127]};
+	}) `uvm_fatal("RAND_FAIL", "randomization failed")
+	item.non_zero_A.constraint_mode(1);
+	finish_item(item);
+
+	// zero A x large B
+	item = mm_seq_item::type_id::create("item");
+	start_item(item);
+	item.non_zero_A.constraint_mode(0);
+	if (!item.randomize() with {
+	    foreach (A[i,j]) A[i][j] == 0;
+	    foreach (B[i,j]) B[i][j] inside {[128:254]};
+	}) `uvm_fatal("RAND_FAIL", "randomization failed")
+	item.non_zero_A.constraint_mode(1);
+	finish_item(item);
+
+	// small A x zero B
+	item = mm_seq_item::type_id::create("item");
+	start_item(item);
+	item.non_zero_B.constraint_mode(0);
+	if (!item.randomize() with {
+	    foreach (A[i,j]) A[i][j] inside {[1:15]};
+	    foreach (B[i,j]) B[i][j] == 0;
+	}) `uvm_fatal("RAND_FAIL", "randomization failed")
+	item.non_zero_B.constraint_mode(1);
+	finish_item(item);
+
+	// mid A x zero B
+	item = mm_seq_item::type_id::create("item");
+	start_item(item);
+	item.non_zero_B.constraint_mode(0);
+	if (!item.randomize() with {
+	    foreach (A[i,j]) A[i][j] inside {[16:127]};
+	    foreach (B[i,j]) B[i][j] == 0;
+	}) `uvm_fatal("RAND_FAIL", "randomization failed")
+	item.non_zero_B.constraint_mode(1);
+	finish_item(item);
+
+	// large A x zero B
+	item = mm_seq_item::type_id::create("item");
+	start_item(item);
+	item.non_zero_B.constraint_mode(0);
+	if (!item.randomize() with {
+	    foreach (A[i,j]) A[i][j] inside {[128:254]};
+	    foreach (B[i,j]) B[i][j] == 0;
+	}) `uvm_fatal("RAND_FAIL", "randomization failed")
+	item.non_zero_B.constraint_mode(1);
+	finish_item(item);
+
+        `uvm_info("COV_SEQ", "Coverage directed sequence complete", UVM_LOW)
+    endtask
+
+endclass
+
 
 // ----------------------------------------------------------------
 // Regression sequence — runs all sequences in order
@@ -181,6 +385,7 @@ class mm_regression_seq extends mm_base_seq;
         mm_corner_seq corner_seq;
         mm_rand_seq   rand_seq;
         mm_stress_seq stress_seq;
+	mm_coverage_directed_seq cov_seq;
 
         // corners first — shake out obvious bugs cheaply
         corner_seq = mm_corner_seq::type_id::create("corner_seq");
@@ -195,6 +400,9 @@ class mm_regression_seq extends mm_base_seq;
         stress_seq = mm_stress_seq::type_id::create("stress_seq");
         stress_seq.num_transactions = 50;
         stress_seq.start(m_sequencer);
+
+	cov_seq = mm_coverage_directed_seq::type_id::create("cov_seq");
+	cov_seq.start(m_sequencer);
 
         `uvm_info("REGRESSION_SEQ", "Full regression complete", UVM_LOW)
     endtask

@@ -38,8 +38,9 @@ class mm_coverage extends uvm_subscriber #(mm_seq_item);
 
         // cross coverage — both A and B at max simultaneously
         // this is the overflow risk scenario
-        cx_ab_ranges: cross cp_a_zero, cp_b_zero;
-
+        cx_ab_ranges: cross cp_a_zero, cp_b_zero{
+		ignore_bins zero_x_zero = binsof(cp_a_zero.zero) && binsof(cp_b_zero.zero);
+	}
     endgroup
 
     // covers matrix pattern scenarios

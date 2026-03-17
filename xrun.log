@@ -1,5 +1,5 @@
 xrun: 22.03-s012: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
-TOOL:	xrun	22.03-s012: Started on Mar 17, 2026 at 17:11:47 CDT
+TOOL:	xrun	22.03-s012: Started on Mar 17, 2026 at 17:31:49 CDT
 xrun
 	-sv
 	-uvm
@@ -22,9 +22,9 @@ xrun
 	rtl/mm_accelerator_top.sv
 	tb/uvm/top/tb_top.sv
 	+UVM_TESTNAME=mm_regression_test
-Recompiling... reason: file './tb/uvm/env/mm_coverage.sv' is newer than expected.
-	expected: Tue Mar 17 17:10:42 2026
-	actual:   Tue Mar 17 17:11:39 2026
+Recompiling... reason: file './tb/uvm/sequences/mm_sequences.sv' is newer than expected.
+	expected: Tue Mar 17 17:27:49 2026
+	actual:   Tue Mar 17 17:31:38 2026
 Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /opt/coe/cadence/XCELIUM/tools/methodology/UVM/CDNS-1.1d
 file: tb/uvm/top/tb_top.sv
 	package worklib.mm_uvm_pkg:sv
@@ -58,18 +58,18 @@ xmelab: *W,COVFHT: FSM hold transitions (transitions to the current state) are n
 	Enabling instrumentation for coverage types: block expression FSM toggle functional
 xmelab: *W,COVDCL: By default expression coverage is scored only for Verilog logical operators (|| and &&) and VHDL logical operators (OR, AND, NOR, and NAND), and is scored only in condition expressions. To score coverage for other operators and for expressions in other statements, use the "set_expr_coverable_operators" and "set_expr_coverable_statements" coverage configuration file commands with suitable options at elaboration.
 	Generating native compiled code:
-		worklib.pe:sv <0x5fe17f93>
+		worklib.pe:sv <0x4d1456c0>
 			streams:   5, words:  2929
-		worklib.controller:sv <0x7a8d1176>
+		worklib.controller:sv <0x45411eb0>
 			streams:   6, words:  4350
-		worklib.mm_accelerator_top:sv <0x3136dc1f>
+		worklib.mm_accelerator_top:sv <0x7e18411e>
 			streams:   3, words:  1853
-		worklib.input_skew:sv <0x1f457626>
+		worklib.input_skew:sv <0x11ce3500>
 			streams:  10, words:  7197
-		worklib.systolic_array:sv <0x57b254d5>
+		worklib.systolic_array:sv <0x2b8fb4eb>
 			streams:  13, words:  8171
-		worklib.mm_if:sv <0x06450a74>
-			streams: 911, words: 828443
+		worklib.mm_if:sv <0x5c82af97>
+			streams: 936, words: 899735
 xmelab: *W,COVNOEN: By default, toggle coverage is not supported for systemverilog enumerated nets and variables. To enable toggle coverage of these objects, specify the 'set_toggle_scoring -sv_enum' command in the coverage configuration file.
 logic [DATA_WIDTH-1:0] a_delay [N][N];
                              |
@@ -83,20 +83,20 @@ xmelab: *N,COVCGN: Coverage configuration file command "set_covergroup -new_inst
 		Modules:                      21       6
 		Interfaces:                    1       1
 		Verilog packages:              5       5
-		Registers:                 14643   10409
+		Registers:                 14688   10429
 		Scalar wires:                 35       -
 		Vectored wires:               88       -
 		Named events:                  4      12
 		Always blocks:                21       6
-		Initial blocks:              311     165
+		Initial blocks:              314     166
 		Parallel blocks:              26      27
 		Cont. assignments:            34       7
 		Pseudo assignments:           28      13
 		Assertions:                    2       2
 		Covergroup Instances:          0       3
 		Compilation units:             1       1
-		SV Class declarations:       207     320
-		SV Class specializations:    403     403
+		SV Class declarations:       208     321
+		SV Class specializations:    405     405
 		Simulation timescale:        1ps
 	Writing initial simulation snapshot: worklib.tb_top:sv
 Loading snapshot worklib.tb_top:sv .................... Done
@@ -130,25 +130,25 @@ UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
 --------------------------------------------------------------
 Name                       Type                    Size  Value
 --------------------------------------------------------------
-uvm_test_top               mm_regression_test      -     @2685
-  env                      mm_env                  -     @2744
-    agent                  mm_agent                -     @2775
-      driver               mm_driver               -     @2963
-        rsp_port           uvm_analysis_port       -     @3063
-        seq_item_port      uvm_seq_item_pull_port  -     @3012
-      monitor              mm_monitor              -     @2933
-        ap                 uvm_analysis_port       -     @3753
-      sequencer            uvm_sequencer           -     @3042
-        rsp_export         uvm_analysis_export     -     @3152
-        seq_item_export    uvm_seq_item_pull_imp   -     @3700
+uvm_test_top               mm_regression_test      -     @2689
+  env                      mm_env                  -     @2748
+    agent                  mm_agent                -     @2779
+      driver               mm_driver               -     @2967
+        rsp_port           uvm_analysis_port       -     @3067
+        seq_item_port      uvm_seq_item_pull_port  -     @3016
+      monitor              mm_monitor              -     @2937
+        ap                 uvm_analysis_port       -     @3757
+      sequencer            uvm_sequencer           -     @3046
+        rsp_export         uvm_analysis_export     -     @3156
+        seq_item_export    uvm_seq_item_pull_imp   -     @3704
         arbitration_queue  array                   0     -    
         lock_queue         array                   0     -    
         num_last_reqs      integral                32    'd1  
         num_last_rsps      integral                32    'd1  
-    coverage               mm_coverage             -     @2835
-      analysis_imp         uvm_analysis_imp        -     @2884
-    scoreboard             mm_scoreboard           -     @2805
-      analysis_export      uvm_analysis_imp        -     @3826
+    coverage               mm_coverage             -     @2839
+      analysis_imp         uvm_analysis_imp        -     @2888
+    scoreboard             mm_scoreboard           -     @2809
+      analysis_export      uvm_analysis_imp        -     @3830
 --------------------------------------------------------------
 
 UVM_INFO tb/uvm/agent/mm_monitor.sv(98) @ 275000: uvm_test_top.env.agent.monitor [MONITOR] mm_seq_item:
@@ -4000,21 +4000,307 @@ UVM_INFO tb/uvm/agent/mm_monitor.sv(98) @ 41075000: uvm_test_top.env.agent.monit
 
 UVM_INFO tb/uvm/env/mm_scoreboard.sv(64) @ 41075000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS -  transaction 256 all 16 elements match
 UVM_INFO tb/uvm/sequences/mm_sequences.sv(162) @ 41075000: uvm_test_top.env.agent.sequencer@@stress_seq [STRESS_SEQ] Completed 50 back-to-back transactions
-UVM_INFO tb/uvm/sequences/mm_sequences.sv(199) @ 41075000: uvm_test_top.env.agent.sequencer@@seq [REGRESSION_SEQ] Full regression complete
-UVM_INFO /opt/coe/cadence/XCELIUM/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_objection.svh(1268) @ 41175000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
-UVM_INFO tb/uvm/env/mm_coverage.sv(150) @ 41175000: uvm_test_top.env.coverage [COVERAGE] 
+UVM_INFO tb/uvm/agent/mm_monitor.sv(98) @ 41235000: uvm_test_top.env.agent.monitor [MONITOR] mm_seq_item:
+  A[0] =   8  14   8   7 
+  A[1] =  15   4  15  11 
+  A[2] =  14   5  15   6 
+  A[3] =   9   3   5   7 
+  B[0] = 233 169 212 200 
+  B[1] = 131 149 204 194 
+  B[2] = 167 228 238 150 
+  B[3] = 211 144 130 129 
+  C[0] =   6511   6270   7366   6419 
+  C[1] =   8845   8135   8996   7445 
+  C[2] =   7688   7395   8338   6794 
+  C[3] =   4802   4116   4620   4035 
+
+UVM_INFO tb/uvm/env/mm_scoreboard.sv(64) @ 41235000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS -  transaction 257 all 16 elements match
+UVM_INFO tb/uvm/agent/mm_monitor.sv(98) @ 41395000: uvm_test_top.env.agent.monitor [MONITOR] mm_seq_item:
+  A[0] = 179 195 159 150 
+  A[1] = 219 231 241 208 
+  A[2] = 141 232 249 148 
+  A[3] = 142 202 181 162 
+  B[0] =   9  13  15   4 
+  B[1] =  13   2   2   4 
+  B[2] =   9   7   5   1 
+  B[3] =  10   9   4  10 
+  C[0] =   7077   5180   4470   3155 
+  C[1] =   9223   6868   5784   4121 
+  C[2] =   8006   5372   4416   3221 
+  C[3] =   7153   4975   4087   3177 
+
+UVM_INFO tb/uvm/env/mm_scoreboard.sv(64) @ 41395000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS -  transaction 258 all 16 elements match
+UVM_INFO tb/uvm/agent/mm_monitor.sv(98) @ 41555000: uvm_test_top.env.agent.monitor [MONITOR] mm_seq_item:
+  A[0] = 255 255 255 255 
+  A[1] = 255 255 255 255 
+  A[2] = 255 255 255 255 
+  A[3] = 255 255 255 255 
+  B[0] =   0   0   0   0 
+  B[1] =   0   0   0   0 
+  B[2] =   0   0   0   0 
+  B[3] =   0   0   0   0 
+  C[0] =      0      0      0      0 
+  C[1] =      0      0      0      0 
+  C[2] =      0      0      0      0 
+  C[3] =      0      0      0      0 
+
+UVM_INFO tb/uvm/env/mm_scoreboard.sv(64) @ 41555000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS -  transaction 259 all 16 elements match
+UVM_INFO tb/uvm/agent/mm_monitor.sv(98) @ 41715000: uvm_test_top.env.agent.monitor [MONITOR] mm_seq_item:
+  A[0] =   0   0   0   0 
+  A[1] =   0   0   0   0 
+  A[2] =   0   0   0   0 
+  A[3] =   0   0   0   0 
+  B[0] = 255 255 255 255 
+  B[1] = 255 255 255 255 
+  B[2] = 255 255 255 255 
+  B[3] = 255 255 255 255 
+  C[0] =      0      0      0      0 
+  C[1] =      0      0      0      0 
+  C[2] =      0      0      0      0 
+  C[3] =      0      0      0      0 
+
+UVM_INFO tb/uvm/env/mm_scoreboard.sv(64) @ 41715000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS -  transaction 260 all 16 elements match
+UVM_INFO tb/uvm/agent/mm_monitor.sv(98) @ 41875000: uvm_test_top.env.agent.monitor [MONITOR] mm_seq_item:
+  A[0] =  75  27  58 109 
+  A[1] =  36  65 113  46 
+  A[2] =  35 109  41 119 
+  A[3] = 116  67  85  29 
+  B[0] =  46  47 125  82 
+  B[1] =  48  87  31  69 
+  B[2] = 125  96  45  77 
+  B[3] =  54  21  31  20 
+  C[0] =  17882  13731  16201  14659 
+  C[1] =  21385  19161  13026  17058 
+  C[2] =  18393  17563  13288  15928 
+  C[3] =  20743  20050  21301  21260 
+
+UVM_INFO tb/uvm/env/mm_scoreboard.sv(64) @ 41875000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS -  transaction 261 all 16 elements match
+UVM_INFO tb/uvm/agent/mm_monitor.sv(98) @ 42035000: uvm_test_top.env.agent.monitor [MONITOR] mm_seq_item:
+  A[0] =  10   5   5   4 
+  A[1] =   2   1   9   9 
+  A[2] =   8  10   7   1 
+  A[3] =   1   2   6   7 
+  B[0] =  76 103  94  94 
+  B[1] = 100  26  85  55 
+  B[2] =  56  85 102  86 
+  B[3] =  40  74  56  41 
+  C[0] =   1700   1881   2099   1809 
+  C[1] =   1116   1663   1695   1386 
+  C[2] =   2040   1753   2372   1945 
+  C[3] =    892   1183   1268   1007 
+
+UVM_INFO tb/uvm/env/mm_scoreboard.sv(64) @ 42035000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS -  transaction 262 all 16 elements match
+UVM_INFO tb/uvm/agent/mm_monitor.sv(98) @ 42195000: uvm_test_top.env.agent.monitor [MONITOR] mm_seq_item:
+  A[0] =  61  41  71  83 
+  A[1] =  47  46 101  41 
+  A[2] = 103  19 124  58 
+  A[3] =  48  16  16  94 
+  B[0] =   3   3   6   1 
+  B[1] =   1   4  15   3 
+  B[2] =   4   1   3  10 
+  B[3] =   9   5   3   2 
+  C[0] =   1255    833   1443   1060 
+  C[1] =    960    631   1398   1277 
+  C[2] =   1346    799   1449   1516 
+  C[3] =   1070    694    858    444 
+
+UVM_INFO tb/uvm/env/mm_scoreboard.sv(64) @ 42195000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS -  transaction 263 all 16 elements match
+UVM_INFO tb/uvm/agent/mm_monitor.sv(98) @ 42355000: uvm_test_top.env.agent.monitor [MONITOR] mm_seq_item:
+  A[0] = 255 255 255 255 
+  A[1] = 255 255 255 255 
+  A[2] = 255 255 255 255 
+  A[3] = 255 255 255 255 
+  B[0] =  13  10  12   6 
+  B[1] =   6  14   5   8 
+  B[2] =   8   8   5   9 
+  B[3] =   3  14   4  15 
+  C[0] =   7650  11730   6630   9690 
+  C[1] =   7650  11730   6630   9690 
+  C[2] =   7650  11730   6630   9690 
+  C[3] =   7650  11730   6630   9690 
+
+UVM_INFO tb/uvm/env/mm_scoreboard.sv(64) @ 42355000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS -  transaction 264 all 16 elements match
+UVM_INFO tb/uvm/agent/mm_monitor.sv(98) @ 42515000: uvm_test_top.env.agent.monitor [MONITOR] mm_seq_item:
+  A[0] =   9   6   5  12 
+  A[1] =  14  11  15  11 
+  A[2] =  11  11   9   4 
+  A[3] =   1  15  11   7 
+  B[0] = 255 255 255 255 
+  B[1] = 255 255 255 255 
+  B[2] = 255 255 255 255 
+  B[3] = 255 255 255 255 
+  C[0] =   8160   8160   8160   8160 
+  C[1] =  13005  13005  13005  13005 
+  C[2] =   8925   8925   8925   8925 
+  C[3] =   8670   8670   8670   8670 
+
+UVM_INFO tb/uvm/env/mm_scoreboard.sv(64) @ 42515000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS -  transaction 265 all 16 elements match
+UVM_INFO tb/uvm/agent/mm_monitor.sv(98) @ 42675000: uvm_test_top.env.agent.monitor [MONITOR] mm_seq_item:
+  A[0] = 255 255 255 255 
+  A[1] = 255 255 255 255 
+  A[2] = 255 255 255 255 
+  A[3] = 255 255 255 255 
+  B[0] = 124 102 109  21 
+  B[1] = 118 121  89 120 
+  B[2] = 126  59  98  41 
+  B[3] =  89 112  19  65 
+  C[0] = 116535 100470  80325  62985 
+  C[1] = 116535 100470  80325  62985 
+  C[2] = 116535 100470  80325  62985 
+  C[3] = 116535 100470  80325  62985 
+
+UVM_INFO tb/uvm/env/mm_scoreboard.sv(64) @ 42675000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS -  transaction 266 all 16 elements match
+UVM_INFO tb/uvm/agent/mm_monitor.sv(98) @ 42835000: uvm_test_top.env.agent.monitor [MONITOR] mm_seq_item:
+  A[0] =  65  39  45  51 
+  A[1] =  84  44  29  84 
+  A[2] =  25  37  44  97 
+  A[3] =  46  85  35  94 
+  B[0] = 255 255 255 255 
+  B[1] = 255 255 255 255 
+  B[2] = 255 255 255 255 
+  B[3] = 255 255 255 255 
+  C[0] =  51000  51000  51000  51000 
+  C[1] =  61455  61455  61455  61455 
+  C[2] =  51765  51765  51765  51765 
+  C[3] =  66300  66300  66300  66300 
+
+UVM_INFO tb/uvm/env/mm_scoreboard.sv(64) @ 42835000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS -  transaction 267 all 16 elements match
+UVM_INFO tb/uvm/agent/mm_monitor.sv(98) @ 42995000: uvm_test_top.env.agent.monitor [MONITOR] mm_seq_item:
+  A[0] = 255 255 255 255 
+  A[1] = 255 255 255 255 
+  A[2] = 255 255 255 255 
+  A[3] = 255 255 255 255 
+  B[0] = 252 204 232 236 
+  B[1] = 169 247 246 219 
+  B[2] = 211 184 154 227 
+  B[3] = 206 198 166 247 
+  C[0] = 213690 212415 203490 236895 
+  C[1] = 213690 212415 203490 236895 
+  C[2] = 213690 212415 203490 236895 
+  C[3] = 213690 212415 203490 236895 
+
+UVM_INFO tb/uvm/env/mm_scoreboard.sv(64) @ 42995000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS -  transaction 268 all 16 elements match
+UVM_INFO tb/uvm/agent/mm_monitor.sv(98) @ 43155000: uvm_test_top.env.agent.monitor [MONITOR] mm_seq_item:
+  A[0] = 138 142 243 140 
+  A[1] = 225 244 221 150 
+  A[2] = 181 198 249 178 
+  A[3] = 178 149 185 143 
+  B[0] = 255 255 255 255 
+  B[1] = 255 255 255 255 
+  B[2] = 255 255 255 255 
+  B[3] = 255 255 255 255 
+  C[0] = 169065 169065 169065 169065 
+  C[1] = 214200 214200 214200 214200 
+  C[2] = 205530 205530 205530 205530 
+  C[3] = 167025 167025 167025 167025 
+
+UVM_INFO tb/uvm/env/mm_scoreboard.sv(64) @ 43155000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS -  transaction 269 all 16 elements match
+UVM_INFO tb/uvm/agent/mm_monitor.sv(98) @ 43315000: uvm_test_top.env.agent.monitor [MONITOR] mm_seq_item:
+  A[0] =   0   0   0   0 
+  A[1] =   0   0   0   0 
+  A[2] =   0   0   0   0 
+  A[3] =   0   0   0   0 
+  B[0] =   3  11   3  13 
+  B[1] =  12   1   4  14 
+  B[2] =   3  13  15   9 
+  B[3] =   1   7   3  13 
+  C[0] =      0      0      0      0 
+  C[1] =      0      0      0      0 
+  C[2] =      0      0      0      0 
+  C[3] =      0      0      0      0 
+
+UVM_INFO tb/uvm/env/mm_scoreboard.sv(64) @ 43315000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS -  transaction 270 all 16 elements match
+UVM_INFO tb/uvm/agent/mm_monitor.sv(98) @ 43475000: uvm_test_top.env.agent.monitor [MONITOR] mm_seq_item:
+  A[0] =   0   0   0   0 
+  A[1] =   0   0   0   0 
+  A[2] =   0   0   0   0 
+  A[3] =   0   0   0   0 
+  B[0] =  26 104  52  58 
+  B[1] =  47  35  97  32 
+  B[2] =  91 120 114  16 
+  B[3] =  84  92 103  43 
+  C[0] =      0      0      0      0 
+  C[1] =      0      0      0      0 
+  C[2] =      0      0      0      0 
+  C[3] =      0      0      0      0 
+
+UVM_INFO tb/uvm/env/mm_scoreboard.sv(64) @ 43475000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS -  transaction 271 all 16 elements match
+UVM_INFO tb/uvm/agent/mm_monitor.sv(98) @ 43635000: uvm_test_top.env.agent.monitor [MONITOR] mm_seq_item:
+  A[0] =   0   0   0   0 
+  A[1] =   0   0   0   0 
+  A[2] =   0   0   0   0 
+  A[3] =   0   0   0   0 
+  B[0] = 194 250 225 205 
+  B[1] = 163 138 169 238 
+  B[2] = 240 167 202 141 
+  B[3] = 244 133 189 178 
+  C[0] =      0      0      0      0 
+  C[1] =      0      0      0      0 
+  C[2] =      0      0      0      0 
+  C[3] =      0      0      0      0 
+
+UVM_INFO tb/uvm/env/mm_scoreboard.sv(64) @ 43635000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS -  transaction 272 all 16 elements match
+UVM_INFO tb/uvm/agent/mm_monitor.sv(98) @ 43795000: uvm_test_top.env.agent.monitor [MONITOR] mm_seq_item:
+  A[0] =   3  11  14   1 
+  A[1] =  14   4  15   4 
+  A[2] =   3   6   9  15 
+  A[3] =   9   7   3   4 
+  B[0] =   0   0   0   0 
+  B[1] =   0   0   0   0 
+  B[2] =   0   0   0   0 
+  B[3] =   0   0   0   0 
+  C[0] =      0      0      0      0 
+  C[1] =      0      0      0      0 
+  C[2] =      0      0      0      0 
+  C[3] =      0      0      0      0 
+
+UVM_INFO tb/uvm/env/mm_scoreboard.sv(64) @ 43795000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS -  transaction 273 all 16 elements match
+UVM_INFO tb/uvm/agent/mm_monitor.sv(98) @ 43955000: uvm_test_top.env.agent.monitor [MONITOR] mm_seq_item:
+  A[0] = 117  35  74  89 
+  A[1] =  17 101 115  40 
+  A[2] =  64  79 125 109 
+  A[3] = 103  95  74  92 
+  B[0] =   0   0   0   0 
+  B[1] =   0   0   0   0 
+  B[2] =   0   0   0   0 
+  B[3] =   0   0   0   0 
+  C[0] =      0      0      0      0 
+  C[1] =      0      0      0      0 
+  C[2] =      0      0      0      0 
+  C[3] =      0      0      0      0 
+
+UVM_INFO tb/uvm/env/mm_scoreboard.sv(64) @ 43955000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS -  transaction 274 all 16 elements match
+UVM_INFO tb/uvm/agent/mm_monitor.sv(98) @ 44115000: uvm_test_top.env.agent.monitor [MONITOR] mm_seq_item:
+  A[0] = 200 225 135 134 
+  A[1] = 234 130 169 225 
+  A[2] = 224 139 179 167 
+  A[3] = 179 165 232 220 
+  B[0] =   0   0   0   0 
+  B[1] =   0   0   0   0 
+  B[2] =   0   0   0   0 
+  B[3] =   0   0   0   0 
+  C[0] =      0      0      0      0 
+  C[1] =      0      0      0      0 
+  C[2] =      0      0      0      0 
+  C[3] =      0      0      0      0 
+
+UVM_INFO tb/uvm/env/mm_scoreboard.sv(64) @ 44115000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS -  transaction 275 all 16 elements match
+UVM_INFO tb/uvm/sequences/mm_sequences.sv(366) @ 44115000: uvm_test_top.env.agent.sequencer@@cov_seq [COV_SEQ] Coverage directed sequence complete
+UVM_INFO tb/uvm/sequences/mm_sequences.sv(407) @ 44115000: uvm_test_top.env.agent.sequencer@@seq [REGRESSION_SEQ] Full regression complete
+UVM_INFO /opt/coe/cadence/XCELIUM/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_objection.svh(1268) @ 44215000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO tb/uvm/env/mm_coverage.sv(151) @ 44215000: uvm_test_top.env.coverage [COVERAGE] 
 ========================================
   COVERAGE SUMMARY
-  Data Ranges:     84.0%
+  Data Ranges:     100.0%
   Matrix Patterns: 100.0%
   Result Ranges:   100.0%
-  Overall:         94.7%
+  Overall:         100.0%
 ========================================
-UVM_INFO tb/uvm/env/mm_scoreboard.sv(84) @ 41175000: uvm_test_top.env.scoreboard [SCOREBOARD] 
+UVM_INFO tb/uvm/env/mm_scoreboard.sv(84) @ 44215000: uvm_test_top.env.scoreboard [SCOREBOARD] 
 ========================================
   SCOREBOARD SUMMARY
-  Total:  256
-  Passed: 256
+  Total:  275
+  Passed: 275
   Failed: 0
 ========================================
 
@@ -4031,28 +4317,29 @@ Number of caught UVM_WARNING reports :    0
 --- UVM Report Summary ---
 
 ** Report counts by severity
-UVM_INFO :  527
+UVM_INFO :  566
 UVM_WARNING :    0
 UVM_ERROR :    0
 UVM_FATAL :    0
 ** Report counts by id
 [CORNER_SEQ]     7
 [COVERAGE]     1
-[MONITOR]   256
+[COV_SEQ]     1
+[MONITOR]   275
 [RAND_SEQ]     1
 [REGRESSION_SEQ]     1
 [RNTST]     1
-[SCOREBOARD]   257
+[SCOREBOARD]   276
 [STRESS_SEQ]     1
 [TEST_DONE]     1
 [UVMTOP]     1
-Simulation complete via $finish(1) at time 41175 NS + 45
+Simulation complete via $finish(1) at time 44215 NS + 45
 /opt/coe/cadence/XCELIUM/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_root.svh:457     $finish;
 xcelium> exit
 xmsim: *N,COVCGN: Coverage configuration file command "set_covergroup -new_instance_reporting" can be specified to improve the scoping and naming of covergroup instances. It may be noted that subsequent merging of a coverage database saved with this command and a coverage database saved without this command is not allowed.
 xmsim: *W,CGDEFN: Default name "worklib.uvm_pkg::.cg_data_ranges" will be generated for covergroup instance "cg_data_ranges" as the name of the covergroup instance is not specified explicitly: ./tb/uvm/env/mm_coverage.sv, 18.
-xmsim: *W,CGDEFN: Default name "worklib.uvm_pkg::.cg_matrix_patterns" will be generated for covergroup instance "cg_matrix_patterns" as the name of the covergroup instance is not specified explicitly: ./tb/uvm/env/mm_coverage.sv, 46.
-xmsim: *W,CGDEFN: Default name "worklib.uvm_pkg::.cg_result_ranges" will be generated for covergroup instance "cg_result_ranges" as the name of the covergroup instance is not specified explicitly: ./tb/uvm/env/mm_coverage.sv, 88.
+xmsim: *W,CGDEFN: Default name "worklib.uvm_pkg::.cg_matrix_patterns" will be generated for covergroup instance "cg_matrix_patterns" as the name of the covergroup instance is not specified explicitly: ./tb/uvm/env/mm_coverage.sv, 47.
+xmsim: *W,CGDEFN: Default name "worklib.uvm_pkg::.cg_result_ranges" will be generated for covergroup instance "cg_result_ranges" as the name of the covergroup instance is not specified explicitly: ./tb/uvm/env/mm_coverage.sv, 89.
 
 coverage setup:
   workdir  :  ./cov_work
@@ -4061,6 +4348,6 @@ coverage setup:
   testname :  test
 
 coverage files:
-  model(design data) :  ./cov_work/worklib/icc_64024ae7_1738cbc9.ucm (reused)
-  data               :  ./cov_work/worklib/test/icc_64024ae7_1738cbc9.ucd
-TOOL:	xrun	22.03-s012: Exiting on Mar 17, 2026 at 17:11:50 CDT  (total: 00:00:03)
+  model(design data) :  ./cov_work/worklib/icc_64024ae7_39f47daa.ucm (reused)
+  data               :  ./cov_work/worklib/test/icc_64024ae7_39f47daa.ucd
+TOOL:	xrun	22.03-s012: Exiting on Mar 17, 2026 at 17:31:54 CDT  (total: 00:00:05)
