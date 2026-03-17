@@ -7,7 +7,8 @@ module pe # (
 	output logic [DATA_WIDTH-1:0]	 a_out, b_out, 
 	output logic [ACCUM_WIDTH-1:0]	 accum,
 	input  logic			 valid_in,
-	output logic			 valid_out
+	output logic			 valid_out,
+	input  logic			 clear
 );
 
 always @(posedge clk)
@@ -22,7 +23,9 @@ always @(posedge clk)
 	
 		a_out	  <= a_in;
 		b_out	  <= b_in;
-		if(valid_in) begin
+		if(clear) begin
+			accum <= '0;
+		end else if (valid_in) begin
 			accum <= accum + a_in * b_in;
 		end
 	end

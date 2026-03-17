@@ -8,7 +8,8 @@ module systolic_array #(
 	input  logic [N*DATA_WIDTH-1:0]	   b_col,
 	input  logic			   valid_in,
 	output logic [N*N*ACCUM_WIDTH-1:0] result,
-	output logic			   valid_out
+	output logic			   valid_out,
+	input  logic			   clear
 );
 
 wire [DATA_WIDTH-1:0] a_wire [N][N+1];
@@ -70,7 +71,8 @@ generate
 				.b_out (b_wire[i+1][j]),
 				.valid_in (valid_diag[i][j]),
 				.valid_out (),
-				.accum (result_wire[i][j])
+				.accum (result_wire[i][j]),
+				.clear (clear)
 			);			
 		end
 	end

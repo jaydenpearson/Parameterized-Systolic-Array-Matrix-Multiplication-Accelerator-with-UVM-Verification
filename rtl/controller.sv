@@ -6,7 +6,8 @@ module controller #(
         input  logic valid_in_upstream,
         output logic ready,
         output logic valid_in,
-        output logic result_valid
+        output logic result_valid,
+	output logic clear
 );
 
 // total cycles to wait after last input for pipeline to drain
@@ -37,13 +38,16 @@ always_ff @(posedge clk) begin
                 case (state)
 
                         IDLE: begin
+				clear <= 1'b0;
                                 if (start) begin
                                         state      <= LOAD;
                                         load_count <= '0;
+					clear <= 1'b1;
                                 end
                         end
 
                         LOAD: begin
+				clear <= 1'b0;
                                 if (valid_in_upstream) begin
                                         load_count <= load_count + 1;
 
@@ -55,6 +59,7 @@ always_ff @(posedge clk) begin
                         end
 
                         DRAIN: begin
+				clear <= 1'b0;
                                 drain_count <= drain_count - 1;
 
                                 if (drain_count == 0) begin
@@ -63,6 +68,7 @@ always_ff @(posedge clk) begin
                         end
 
                         DONE: begin
+				clear <= 1'b0;
                                 state <= IDLE;  // result_valid pulses one cycle then returns to IDLE
                         end
 

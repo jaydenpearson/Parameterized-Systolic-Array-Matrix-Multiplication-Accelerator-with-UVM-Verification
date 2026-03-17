@@ -10,7 +10,8 @@ module mm_accelerator_top #(
         input  logic                       valid_in_upstream,
         output logic                       ready,
         output logic                       result_valid,
-        output logic [N*N*ACCUM_WIDTH-1:0] result
+        output logic [N*N*ACCUM_WIDTH-1:0] result,
+	input  logic			   clear
 );
 
 // internal wires between modules
@@ -18,6 +19,9 @@ wire                       ctrl_valid_in;   // controller → skew + systolic ar
 wire                       skew_valid_out;  // skew → systolic array
 wire [N*DATA_WIDTH-1:0]    a_skewed;        // skew → systolic array
 wire [N*DATA_WIDTH-1:0]    b_skewed;        // skew → systolic array
+
+// clear wire added
+wire ctrl_clear;
 
 // ---------------------------------------------------------------------
 // Controller
@@ -33,7 +37,8 @@ controller #(
         .valid_in_upstream(valid_in_upstream),
         .ready            (ready),
         .valid_in         (ctrl_valid_in),
-        .result_valid     (result_valid)
+        .result_valid     (result_valid),
+	.clear (ctrl_clear)
 );
 
 // ---------------------------------------------------------------------
@@ -69,7 +74,8 @@ systolic_array #(
         .b_col    (b_skewed),
         .valid_in (skew_valid_out),
         .result   (result),
-        .valid_out(/* not used at top level — result_valid from controller used instead */)
+        .valid_out(/* not used at top level — result_valid from controller used instead */),
+	.clear (ctrl_clear)
 );
 
 endmodule

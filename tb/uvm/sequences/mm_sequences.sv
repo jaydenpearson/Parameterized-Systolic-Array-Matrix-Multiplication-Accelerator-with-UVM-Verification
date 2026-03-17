@@ -107,17 +107,18 @@ class mm_corner_seq extends mm_base_seq;
         item = mm_seq_item::type_id::create("item");
         start_item(item);
         foreach (item.A[i,j]) item.A[i][j] = (i == j) ? 8'd1 : 8'd0;
-        if (!item.randomize(B))
-            `uvm_fatal("RAND_FAIL", "randomization of B failed")
-        finish_item(item);
+        if (!item.randomize())
+            `uvm_fatal("RAND_FAIL", "randomization failed")
+        foreach (item.A[i,j]) item.A[i][j] = (i == j) ? 8'd1 : 8'd0;
+	finish_item(item);
         `uvm_info("CORNER_SEQ", "Sent identity x random transaction", UVM_MEDIUM)
 
         // ---- Test 6: random x identity ----
         // result should equal A exactly
         item = mm_seq_item::type_id::create("item");
         start_item(item);
-        if (!item.randomize(A))
-            `uvm_fatal("RAND_FAIL", "randomization of A failed")
+        if (!item.randomize())
+            `uvm_fatal("RAND_FAIL", "randomization failed")
         foreach (item.B[i,j]) item.B[i][j] = (i == j) ? 8'd1 : 8'd0;
         finish_item(item);
         `uvm_info("CORNER_SEQ", "Sent random x identity transaction", UVM_MEDIUM)

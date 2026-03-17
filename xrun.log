@@ -1,5 +1,5 @@
 xrun: 22.03-s012: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
-TOOL:	xrun	22.03-s012: Started on Mar 17, 2026 at 16:20:47 CDT
+TOOL:	xrun	22.03-s012: Started on Mar 17, 2026 at 16:39:12 CDT
 xrun
 	-sv
 	-uvm
@@ -19,10 +19,13 @@ xrun
 	rtl/mm_accelerator_top.sv
 	tb/uvm/top/tb_top.sv
 	+UVM_TESTNAME=mm_corner_test
-Recompiling... reason: file './tb/uvm/env/mm_coverage.sv' is newer than expected.
-	expected: Tue Mar 17 16:16:36 2026
-	actual:   Tue Mar 17 16:20:35 2026
+Recompiling... reason: file './rtl/mm_accelerator_top.sv' is newer than expected.
+	expected: Tue Mar 17 16:26:42 2026
+	actual:   Tue Mar 17 16:38:06 2026
 Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /opt/coe/cadence/XCELIUM/tools/methodology/UVM/CDNS-1.1d
+file: rtl/mm_accelerator_top.sv
+	module worklib.mm_accelerator_top:sv
+		errors: 0, warnings: 0
 file: tb/uvm/top/tb_top.sv
 	package worklib.mm_uvm_pkg:sv
 		errors: 0, warnings: 0
@@ -30,6 +33,11 @@ file: tb/uvm/top/tb_top.sv
 		errors: 0, warnings: 0
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
+    ) u_dut (
+          |
+xmelab: *W,CUVWSI (./tb/uvm/top/tb_top.sv,61|10): 1 input port was not connected:
+xmelab: (./rtl/mm_accelerator_top.sv,14): clear
+
 	Top level design units:
 		uvm_pkg
 		cdns_uvmapi
@@ -41,26 +49,18 @@ file: tb/uvm/top/tb_top.sv
 xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
 	Building instance overlay tables: .................... Done
 	Generating native compiled code:
-		worklib.pe:sv <0x49a95307>
-			streams:   5, words:  1511
-		worklib.controller:sv <0x09ffe926>
-			streams:   5, words:  2214
-		worklib.mm_accelerator_top:sv <0x71b4a703>
+		worklib.pe:sv <0x1cb86dda>
+			streams:   5, words:  1602
+		worklib.controller:sv <0x3e7ae9c7>
+			streams:   6, words:  2663
+		worklib.mm_accelerator_top:sv <0x46a4ed49>
 			streams:   3, words:  1287
-		worklib.input_skew:sv <0x4c7c161b>
+		worklib.input_skew:sv <0x5d751c48>
 			streams:  10, words: 13254
-		worklib.systolic_array:sv <0x0796891a>
+		worklib.systolic_array:sv <0x33cdcb42>
 			streams:  13, words: 15677
-		worklib.mm_if:sv <0x02cecb95>
-			streams: 810, words: 737592
-		worklib.cdns_uvm_pkg:sv <0x41479ef5>
-			streams: 172, words: 230195
-		worklib.cdns_uvmapi:svp <0x24c4b81f>
-			streams:  27, words: 25199
-		worklib.cdns_assert2uvm_pkg:sv <0x5e186354>
-			streams:   3, words:  1338
-		worklib.uvm_pkg:sv <0x0f17f5cd>
-			streams: 4535, words: 5791361
+		worklib.mm_if:sv <0x4841364d>
+			streams: 808, words: 734863
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
@@ -68,8 +68,8 @@ xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-
 		Modules:                      21       6
 		Interfaces:                    1       1
 		Verilog packages:              5       5
-		Registers:                 14640   10406
-		Scalar wires:                 34       -
+		Registers:                 14643   10409
+		Scalar wires:                 36       -
 		Vectored wires:               88       -
 		Named events:                  4      12
 		Always blocks:                21       6
@@ -177,30 +177,12 @@ UVM_INFO tb/uvm/agent/mm_monitor.sv(98) @ 595000: uvm_test_top.env.agent.monitor
   B[1] =   1   1   1   1 
   B[2] =   1   1   1   1 
   B[3] =   1   1   1   1 
-  C[0] =      5      4      4      4 
-  C[1] =      4      5      4      4 
-  C[2] =      4      4      5      4 
-  C[3] =      4      4      4      5 
+  C[0] =      4      4      4      4 
+  C[1] =      4      4      4      4 
+  C[2] =      4      4      4      4 
+  C[3] =      4      4      4      4 
 
-UVM_ERROR tb/uvm/env/mm_scoreboard.sv(53) @ 595000: uvm_test_top.env.scoreboard [SCOREBOARD] MISMATCH at C[0][0]: got=5 expected=4
-UVM_ERROR tb/uvm/env/mm_scoreboard.sv(53) @ 595000: uvm_test_top.env.scoreboard [SCOREBOARD] MISMATCH at C[1][1]: got=5 expected=4
-UVM_ERROR tb/uvm/env/mm_scoreboard.sv(53) @ 595000: uvm_test_top.env.scoreboard [SCOREBOARD] MISMATCH at C[2][2]: got=5 expected=4
-UVM_ERROR tb/uvm/env/mm_scoreboard.sv(53) @ 595000: uvm_test_top.env.scoreboard [SCOREBOARD] MISMATCH at C[3][3]: got=5 expected=4
-UVM_ERROR tb/uvm/env/mm_scoreboard.sv(69) @ 595000: uvm_test_top.env.scoreboard [SCOREBOARD] FAIL - transaction 3 had 4 mismatches
-UVM_INFO tb/uvm/env/mm_scoreboard.sv(71) @ 595000: uvm_test_top.env.scoreboard [SCOREBOARD] mm_seq_item:
-  A[0] =   1   1   1   1 
-  A[1] =   1   1   1   1 
-  A[2] =   1   1   1   1 
-  A[3] =   1   1   1   1 
-  B[0] =   1   1   1   1 
-  B[1] =   1   1   1   1 
-  B[2] =   1   1   1   1 
-  B[3] =   1   1   1   1 
-  C[0] =      5      4      4      4 
-  C[1] =      4      5      4      4 
-  C[2] =      4      4      5      4 
-  C[3] =      4      4      4      5 
-
+UVM_INFO tb/uvm/env/mm_scoreboard.sv(64) @ 595000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS -  transaction 3 all 16 elements match
 UVM_INFO tb/uvm/sequences/mm_sequences.sv(95) @ 595000: uvm_test_top.env.agent.sequencer@@seq [CORNER_SEQ] Sent all-ones transaction
 UVM_INFO tb/uvm/agent/mm_monitor.sv(98) @ 755000: uvm_test_top.env.agent.monitor [MONITOR] mm_seq_item:
   A[0] = 255 255 255 255 
@@ -211,50 +193,92 @@ UVM_INFO tb/uvm/agent/mm_monitor.sv(98) @ 755000: uvm_test_top.env.agent.monitor
   B[1] = 255 255 255 255 
   B[2] = 255 255 255 255 
   B[3] = 255 255 255 255 
-  C[0] = 260105 260104 260104 260104 
-  C[1] = 260104 260105 260104 260104 
-  C[2] = 260104 260104 260105 260104 
-  C[3] = 260104 260104 260104 260105 
+  C[0] = 260100 260100 260100 260100 
+  C[1] = 260100 260100 260100 260100 
+  C[2] = 260100 260100 260100 260100 
+  C[3] = 260100 260100 260100 260100 
 
-UVM_ERROR tb/uvm/env/mm_scoreboard.sv(53) @ 755000: uvm_test_top.env.scoreboard [SCOREBOARD] MISMATCH at C[0][0]: got=260105 expected=260100
-UVM_ERROR tb/uvm/env/mm_scoreboard.sv(53) @ 755000: uvm_test_top.env.scoreboard [SCOREBOARD] MISMATCH at C[0][1]: got=260104 expected=260100
-UVM_ERROR tb/uvm/env/mm_scoreboard.sv(53) @ 755000: uvm_test_top.env.scoreboard [SCOREBOARD] MISMATCH at C[0][2]: got=260104 expected=260100
-UVM_ERROR tb/uvm/env/mm_scoreboard.sv(53) @ 755000: uvm_test_top.env.scoreboard [SCOREBOARD] MISMATCH at C[0][3]: got=260104 expected=260100
-UVM_ERROR tb/uvm/env/mm_scoreboard.sv(53) @ 755000: uvm_test_top.env.scoreboard [SCOREBOARD] MISMATCH at C[1][0]: got=260104 expected=260100
-UVM_ERROR tb/uvm/env/mm_scoreboard.sv(53) @ 755000: uvm_test_top.env.scoreboard [SCOREBOARD] MISMATCH at C[1][1]: got=260105 expected=260100
-UVM_ERROR tb/uvm/env/mm_scoreboard.sv(53) @ 755000: uvm_test_top.env.scoreboard [SCOREBOARD] MISMATCH at C[1][2]: got=260104 expected=260100
-UVM_ERROR tb/uvm/env/mm_scoreboard.sv(53) @ 755000: uvm_test_top.env.scoreboard [SCOREBOARD] MISMATCH at C[1][3]: got=260104 expected=260100
-UVM_ERROR tb/uvm/env/mm_scoreboard.sv(53) @ 755000: uvm_test_top.env.scoreboard [SCOREBOARD] MISMATCH at C[2][0]: got=260104 expected=260100
-UVM_ERROR tb/uvm/env/mm_scoreboard.sv(53) @ 755000: uvm_test_top.env.scoreboard [SCOREBOARD] MISMATCH at C[2][1]: got=260104 expected=260100
-UVM_ERROR tb/uvm/env/mm_scoreboard.sv(53) @ 755000: uvm_test_top.env.scoreboard [SCOREBOARD] MISMATCH at C[2][2]: got=260105 expected=260100
-UVM_ERROR tb/uvm/env/mm_scoreboard.sv(53) @ 755000: uvm_test_top.env.scoreboard [SCOREBOARD] MISMATCH at C[2][3]: got=260104 expected=260100
-UVM_ERROR tb/uvm/env/mm_scoreboard.sv(53) @ 755000: uvm_test_top.env.scoreboard [SCOREBOARD] MISMATCH at C[3][0]: got=260104 expected=260100
-UVM_ERROR tb/uvm/env/mm_scoreboard.sv(53) @ 755000: uvm_test_top.env.scoreboard [SCOREBOARD] MISMATCH at C[3][1]: got=260104 expected=260100
-UVM_ERROR tb/uvm/env/mm_scoreboard.sv(53) @ 755000: uvm_test_top.env.scoreboard [SCOREBOARD] MISMATCH at C[3][2]: got=260104 expected=260100
-UVM_ERROR tb/uvm/env/mm_scoreboard.sv(53) @ 755000: uvm_test_top.env.scoreboard [SCOREBOARD] MISMATCH at C[3][3]: got=260105 expected=260100
-UVM_ERROR tb/uvm/env/mm_scoreboard.sv(69) @ 755000: uvm_test_top.env.scoreboard [SCOREBOARD] FAIL - transaction 4 had 16 mismatches
-UVM_INFO tb/uvm/env/mm_scoreboard.sv(71) @ 755000: uvm_test_top.env.scoreboard [SCOREBOARD] mm_seq_item:
-  A[0] = 255 255 255 255 
-  A[1] = 255 255 255 255 
-  A[2] = 255 255 255 255 
-  A[3] = 255 255 255 255 
-  B[0] = 255 255 255 255 
-  B[1] = 255 255 255 255 
-  B[2] = 255 255 255 255 
-  B[3] = 255 255 255 255 
-  C[0] = 260105 260104 260104 260104 
-  C[1] = 260104 260105 260104 260104 
-  C[2] = 260104 260104 260105 260104 
-  C[3] = 260104 260104 260104 260105 
-
+UVM_INFO tb/uvm/env/mm_scoreboard.sv(64) @ 755000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS -  transaction 4 all 16 elements match
 UVM_INFO tb/uvm/sequences/mm_sequences.sv(103) @ 755000: uvm_test_top.env.agent.sequencer@@seq [CORNER_SEQ] Sent all-max transaction
-        if (!item.randomize(B))
-                          |
-xmsim: *W,SVRNDF (./tb/uvm/sequences/mm_sequences.sv,110|26): The randomize method call failed. The unique id of the failed randomize call is 0.
-Observed simulation time : 755 NS + 2.
-xmsim: *F,RNDUNR: XCELIGEN assertion failed - rnc_options::checking_for_errors
-  File - /dev/shm/avs_local_builds/avs_ramdisk_client_avsnflnx10/tbv/rnc/src/api/rnc_array.cpp:207, func - virtual Int rnc_array_impl::eval_bi()
- Stacktrace:
-  0: do_assert(char const*, int, char const*, char const*) 
-  1: .
-TOOL:	xrun	22.03-s012: Exiting on Mar 17, 2026 at 16:20:53 CDT  (total: 00:00:06)
+UVM_INFO tb/uvm/agent/mm_monitor.sv(98) @ 915000: uvm_test_top.env.agent.monitor [MONITOR] mm_seq_item:
+  A[0] =   1   0   0   0 
+  A[1] =   0   1   0   0 
+  A[2] =   0   0   1   0 
+  A[3] =   0   0   0   1 
+  B[0] =   2 132 143   4 
+  B[1] = 209 207 111 192 
+  B[2] = 211  63 103  49 
+  B[3] =  21 205 169 104 
+  C[0] =      2    132    143      4 
+  C[1] =    209    207    111    192 
+  C[2] =    211     63    103     49 
+  C[3] =     21    205    169    104 
+
+UVM_INFO tb/uvm/env/mm_scoreboard.sv(64) @ 915000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS -  transaction 5 all 16 elements match
+UVM_INFO tb/uvm/sequences/mm_sequences.sv(114) @ 915000: uvm_test_top.env.agent.sequencer@@seq [CORNER_SEQ] Sent identity x random transaction
+UVM_INFO tb/uvm/agent/mm_monitor.sv(98) @ 1075000: uvm_test_top.env.agent.monitor [MONITOR] mm_seq_item:
+  A[0] = 107 112 204  42 
+  A[1] = 208 147  63 127 
+  A[2] =  65 100 182 218 
+  A[3] = 203 217  45 149 
+  B[0] =   1   0   0   0 
+  B[1] =   0   1   0   0 
+  B[2] =   0   0   1   0 
+  B[3] =   0   0   0   1 
+  C[0] =    107    112    204     42 
+  C[1] =    208    147     63    127 
+  C[2] =     65    100    182    218 
+  C[3] =    203    217     45    149 
+
+UVM_INFO tb/uvm/env/mm_scoreboard.sv(64) @ 1075000: uvm_test_top.env.scoreboard [SCOREBOARD] PASS -  transaction 6 all 16 elements match
+UVM_INFO tb/uvm/sequences/mm_sequences.sv(124) @ 1075000: uvm_test_top.env.agent.sequencer@@seq [CORNER_SEQ] Sent random x identity transaction
+UVM_INFO tb/uvm/sequences/mm_sequences.sv(126) @ 1075000: uvm_test_top.env.agent.sequencer@@seq [CORNER_SEQ] All corner cases complete
+UVM_INFO /opt/coe/cadence/XCELIUM/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_objection.svh(1268) @ 1175000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+xmsim: *N,COVNSM: (File: ./tb/uvm/env/mm_coverage.sv, Line: 131):(Time: 1175 NS + 30) Sampling of covergroup type "mm_coverage::cg_data_ranges" (./tb/uvm/env/mm_coverage.sv:18), referred in the statement is not enabled. As a result, coverage methods get_coverage(), get_inst_coverage(), get_hitcount(), and get_inst_hitcount() will return 0 coverage.
+xmsim: *N,COVNSM: (File: ./tb/uvm/env/mm_coverage.sv, Line: 131):(Time: 1175 NS + 30) Sampling of covergroup type "mm_coverage::cg_matrix_patterns" (./tb/uvm/env/mm_coverage.sv:45), referred in the statement is not enabled. As a result, coverage methods get_coverage(), get_inst_coverage(), get_hitcount(), and get_inst_hitcount() will return 0 coverage.
+xmsim: *N,COVNSM: (File: ./tb/uvm/env/mm_coverage.sv, Line: 131):(Time: 1175 NS + 30) Sampling of covergroup type "mm_coverage::cg_result_ranges" (./tb/uvm/env/mm_coverage.sv:86), referred in the statement is not enabled. As a result, coverage methods get_coverage(), get_inst_coverage(), get_hitcount(), and get_inst_hitcount() will return 0 coverage.
+UVM_INFO tb/uvm/env/mm_coverage.sv(138) @ 1175000: uvm_test_top.env.coverage [COVERAGE] 
+========================================
+  COVERAGE SUMMARY
+  Data Ranges:     0.0%
+  Matrix Patterns: 0.0%
+  Result Ranges:   0.0%
+  Overall:         0.0%
+========================================
+UVM_INFO tb/uvm/env/mm_scoreboard.sv(84) @ 1175000: uvm_test_top.env.scoreboard [SCOREBOARD] 
+========================================
+  SCOREBOARD SUMMARY
+  Total:  6
+  Passed: 6
+  Failed: 0
+========================================
+
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   24
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[CORNER_SEQ]     7
+[COVERAGE]     1
+[MONITOR]     6
+[RNTST]     1
+[SCOREBOARD]     7
+[TEST_DONE]     1
+[UVMTOP]     1
+Simulation complete via $finish(1) at time 1175 NS + 45
+/opt/coe/cadence/XCELIUM/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_root.svh:457     $finish;
+xcelium> exit
+TOOL:	xrun	22.03-s012: Exiting on Mar 17, 2026 at 16:39:16 CDT  (total: 00:00:04)

@@ -29,11 +29,11 @@ class mm_seq_item extends uvm_sequence_item;
 
     // prevent all-zero matrices from dominating random runs
     constraint non_zero_A {
-        A.sum() with (int'(item)) > 0;
+        A[0][0] > 0;
     }
 
     constraint non_zero_B {
-        B.sum() with (int'(item)) > 0;
+        B[0][0] > 0;
     }
 
     // keep values small enough to prevent overflow
