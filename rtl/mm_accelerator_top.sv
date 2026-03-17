@@ -10,8 +10,7 @@ module mm_accelerator_top #(
         input  logic                       valid_in_upstream,
         output logic                       ready,
         output logic                       result_valid,
-        output logic [N*N*ACCUM_WIDTH-1:0] result,
-	input  logic			   clear
+        output logic [N*N*ACCUM_WIDTH-1:0] result
 );
 
 // internal wires between modules

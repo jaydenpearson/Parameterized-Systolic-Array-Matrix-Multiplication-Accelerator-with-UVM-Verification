@@ -28,4 +28,4 @@ rtl/systolic_array.sv
 rtl/controller.sv
 rtl/mm_accelerator_top.sv
 tb/uvm/top/tb_top.sv
-+UVM_TESTNAME=mm_corner_test
++UVM_TESTNAME=mm_regression_test

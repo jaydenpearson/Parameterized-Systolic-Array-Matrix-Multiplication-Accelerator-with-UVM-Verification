@@ -110,6 +110,9 @@ class mm_coverage extends uvm_subscriber #(mm_seq_item);
     // ----------------------------------------------------------------
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
+	cg_data_ranges.start();
+	cg_matrix_patterns.start();
+	cg_result_ranges.start();
     endfunction
 
     // ----------------------------------------------------------------
