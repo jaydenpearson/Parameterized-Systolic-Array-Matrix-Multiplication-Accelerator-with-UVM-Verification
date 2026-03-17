@@ -2,6 +2,7 @@
 // File created by:  xrun
 // Do not modify this file
 //
++NUM_TRANSACTIONS=200
 -loadpli
 /opt/coe/cadence/XCELIUM/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/libuvmpli.so:uvm_pli_boot
 -timescale

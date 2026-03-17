@@ -1,5 +1,5 @@
 xrun: 22.03-s012: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
-TOOL:	xrun	22.03-s012: Started on Mar 17, 2026 at 17:31:49 CDT
+TOOL:	xrun	22.03-s012: Started on Mar 17, 2026 at 17:57:35 CDT
 xrun
 	-sv
 	-uvm
@@ -17,17 +17,39 @@ xrun
 	-incdir tb/uvm/pkg
 	rtl/pe.sv
 	rtl/input_skew.sv
+	rtl/input_skew.sv
 	rtl/systolic_array.sv
 	rtl/controller.sv
 	rtl/mm_accelerator_top.sv
 	tb/uvm/top/tb_top.sv
 	+UVM_TESTNAME=mm_regression_test
-Recompiling... reason: file './tb/uvm/sequences/mm_sequences.sv' is newer than expected.
-	expected: Tue Mar 17 17:27:49 2026
-	actual:   Tue Mar 17 17:31:38 2026
-Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /opt/coe/cadence/XCELIUM/tools/methodology/UVM/CDNS-1.1d
+	+NUM_TRANSACTIONS=200
+
+   User defined plus("+") options:
+	+NUM_TRANSACTIONS=200
+
+file: rtl/pe.sv
+	module worklib.pe:sv
+		errors: 0, warnings: 0
+file: rtl/input_skew.sv
+	module worklib.input_skew:sv
+		errors: 0, warnings: 0
+file: rtl/input_skew.sv
+module input_skew #(
+                |
+xmvlog: *W,RECOME (rtl/input_skew.sv,1|16): recompiling design unit worklib.input_skew:sv.
+	First compiled from line 1 of rtl/input_skew.sv.
+file: rtl/systolic_array.sv
+	module worklib.systolic_array:sv
+		errors: 0, warnings: 0
+file: rtl/controller.sv
+	module worklib.controller:sv
+		errors: 0, warnings: 0
+file: rtl/mm_accelerator_top.sv
+	module worklib.mm_accelerator_top:sv
+		errors: 0, warnings: 0
 file: tb/uvm/top/tb_top.sv
-	package worklib.mm_uvm_pkg:sv
+	interface worklib.mm_if:sv
 		errors: 0, warnings: 0
 	module worklib.tb_top:sv
 		errors: 0, warnings: 0
@@ -39,7 +61,7 @@ file: tb/uvm/top/tb_top.sv
 		cdns_assert2uvm_pkg
 		cdns_uvm_pkg
 		mm_uvm_pkg
-		$unit_0x6c23e277
+		$unit_0x3d869bf9
 		tb_top
 xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
 
@@ -58,17 +80,17 @@ xmelab: *W,COVFHT: FSM hold transitions (transitions to the current state) are n
 	Enabling instrumentation for coverage types: block expression FSM toggle functional
 xmelab: *W,COVDCL: By default expression coverage is scored only for Verilog logical operators (|| and &&) and VHDL logical operators (OR, AND, NOR, and NAND), and is scored only in condition expressions. To score coverage for other operators and for expressions in other statements, use the "set_expr_coverable_operators" and "set_expr_coverable_statements" coverage configuration file commands with suitable options at elaboration.
 	Generating native compiled code:
-		worklib.pe:sv <0x4d1456c0>
+		worklib.pe:sv <0x67c16456>
 			streams:   5, words:  2929
-		worklib.controller:sv <0x45411eb0>
+		worklib.controller:sv <0x5f7484a4>
 			streams:   6, words:  4350
-		worklib.mm_accelerator_top:sv <0x7e18411e>
+		worklib.mm_accelerator_top:sv <0x491eb7f9>
 			streams:   3, words:  1853
-		worklib.input_skew:sv <0x11ce3500>
+		worklib.input_skew:sv <0x60a328e1>
 			streams:  10, words:  7197
-		worklib.systolic_array:sv <0x2b8fb4eb>
+		worklib.systolic_array:sv <0x23d2ed7e>
 			streams:  13, words:  8171
-		worklib.mm_if:sv <0x5c82af97>
+		worklib.mm_if:sv <0x27b14365>
 			streams: 936, words: 899735
 xmelab: *W,COVNOEN: By default, toggle coverage is not supported for systemverilog enumerated nets and variables. To enable toggle coverage of these objects, specify the 'set_toggle_scoring -sv_enum' command in the coverage configuration file.
 logic [DATA_WIDTH-1:0] a_delay [N][N];
@@ -130,25 +152,25 @@ UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
 --------------------------------------------------------------
 Name                       Type                    Size  Value
 --------------------------------------------------------------
-uvm_test_top               mm_regression_test      -     @2689
-  env                      mm_env                  -     @2748
-    agent                  mm_agent                -     @2779
-      driver               mm_driver               -     @2967
-        rsp_port           uvm_analysis_port       -     @3067
-        seq_item_port      uvm_seq_item_pull_port  -     @3016
-      monitor              mm_monitor              -     @2937
-        ap                 uvm_analysis_port       -     @3757
-      sequencer            uvm_sequencer           -     @3046
-        rsp_export         uvm_analysis_export     -     @3156
-        seq_item_export    uvm_seq_item_pull_imp   -     @3704
+uvm_test_top               mm_regression_test      -     @2690
+  env                      mm_env                  -     @2749
+    agent                  mm_agent                -     @2780
+      driver               mm_driver               -     @2968
+        rsp_port           uvm_analysis_port       -     @3068
+        seq_item_port      uvm_seq_item_pull_port  -     @3017
+      monitor              mm_monitor              -     @2938
+        ap                 uvm_analysis_port       -     @3758
+      sequencer            uvm_sequencer           -     @3047
+        rsp_export         uvm_analysis_export     -     @3157
+        seq_item_export    uvm_seq_item_pull_imp   -     @3705
         arbitration_queue  array                   0     -    
         lock_queue         array                   0     -    
         num_last_reqs      integral                32    'd1  
         num_last_rsps      integral                32    'd1  
-    coverage               mm_coverage             -     @2839
-      analysis_imp         uvm_analysis_imp        -     @2888
-    scoreboard             mm_scoreboard           -     @2809
-      analysis_export      uvm_analysis_imp        -     @3830
+    coverage               mm_coverage             -     @2840
+      analysis_imp         uvm_analysis_imp        -     @2889
+    scoreboard             mm_scoreboard           -     @2810
+      analysis_export      uvm_analysis_imp        -     @3831
 --------------------------------------------------------------
 
 UVM_INFO tb/uvm/agent/mm_monitor.sv(98) @ 275000: uvm_test_top.env.agent.monitor [MONITOR] mm_seq_item:
@@ -4350,4 +4372,4 @@ coverage setup:
 coverage files:
   model(design data) :  ./cov_work/worklib/icc_64024ae7_39f47daa.ucm (reused)
   data               :  ./cov_work/worklib/test/icc_64024ae7_39f47daa.ucd
-TOOL:	xrun	22.03-s012: Exiting on Mar 17, 2026 at 17:31:54 CDT  (total: 00:00:05)
+TOOL:	xrun	22.03-s012: Exiting on Mar 17, 2026 at 17:57:40 CDT  (total: 00:00:05)

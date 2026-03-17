@@ -4,6 +4,7 @@
 //
 -INPUT
 "@source /opt/coe/cadence/XCELIUM/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl"
++NUM_TRANSACTIONS=200
 -uvmhome
 /opt/coe/cadence/XCELIUM/tools/methodology/UVM/CDNS-1.1d
 -sv_lib
@@ -19,7 +20,7 @@ worklib
 +EMGRLOG
 xrun.log
 -XLSTIME
-1773786709
+1773788255
 -XLKEEP
 -XLMODE
 ./xcelium.d/run.lnx86.22.03.d
@@ -33,4 +34,4 @@ xrun
 -XLVERSION
 "TOOL:	xrun	22.03-s012"
 -XLNAME
-./xcelium.d/run.lnx86.22.03.d/n01-zeus.olympus.ece.tamu.edu_2287752
+./xcelium.d/run.lnx86.22.03.d/n01-zeus.olympus.ece.tamu.edu_2316084

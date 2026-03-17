@@ -29,8 +29,10 @@ tb/uvm/tests
 tb/uvm/pkg
 rtl/pe.sv
 rtl/input_skew.sv
+rtl/input_skew.sv
 rtl/systolic_array.sv
 rtl/controller.sv
 rtl/mm_accelerator_top.sv
 tb/uvm/top/tb_top.sv
 +UVM_TESTNAME=mm_regression_test
++NUM_TRANSACTIONS=200
