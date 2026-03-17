@@ -5,3 +5,4 @@
 1773447460 /home/ugrads/j/jaydenpearson24/AcceleratorUVM/Parameterized-Systolic-Array-Matrix-Multiplication-Accelerator-with-UVM-Verification/rtl/controller.sv
 1773445606 /home/ugrads/j/jaydenpearson24/AcceleratorUVM/Parameterized-Systolic-Array-Matrix-Multiplication-Accelerator-with-UVM-Verification/rtl/mm_accelerator_top.sv
 1773445872 /home/ugrads/j/jaydenpearson24/AcceleratorUVM/Parameterized-Systolic-Array-Matrix-Multiplication-Accelerator-with-UVM-Verification/tb/directed/tb_mm_accelerator.sv
+1773782128 /home/ugrads/j/jaydenpearson24/AcceleratorUVM/Parameterized-Systolic-Array-Matrix-Multiplication-Accelerator-with-UVM-Verification/tb/uvm/top/tb_top.sv

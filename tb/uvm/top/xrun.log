@@ -1,0 +1,27 @@
+xrun: 22.03-s012: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
+TOOL:	xrun	22.03-s012: Started on Mar 17, 2026 at 16:11:28 CDT
+xrun
+	-sv
+	-uvm
+	-timescale 1ns/1ps
+	-access +r
+	-incdir tb/uvm/top
+	-incdir tb/uvm/seq_items
+	-incdir tb/uvm/agent
+	-incdir tb/uvm/env
+	-incdir tb/uvm/sequences
+	-incdir tb/uvm/tests
+	rtl/pe.sv
+	rtl/input_skew.sv
+	rtl/systolic_array.sv
+	rtl/controller.sv
+	rtl/mm_accelerator_top.sv
+	tb/uvm/top/tb_top.sv
+	+UVM_TESTNAME=mm_corner_test
+xrun: *E,FILEMIS: Cannot find the provided file rtl/pe.sv.
+xrun: *E,FILEMIS: Cannot find the provided file rtl/input_skew.sv.
+xrun: *E,FILEMIS: Cannot find the provided file rtl/systolic_array.sv.
+xrun: *E,FILEMIS: Cannot find the provided file rtl/controller.sv.
+xrun: *E,FILEMIS: Cannot find the provided file rtl/mm_accelerator_top.sv.
+xrun: *E,FILEMIS: Cannot find the provided file tb/uvm/top/tb_top.sv.
+TOOL:	xrun	22.03-s012: Exiting on Mar 17, 2026 at 16:11:28 CDT  (total: 00:00:00)

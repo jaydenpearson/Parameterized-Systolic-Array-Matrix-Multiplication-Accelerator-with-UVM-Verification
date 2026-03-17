@@ -2,10 +2,13 @@
 // File created by:  xrun
 // Do not modify this file
 //
+-loadpli
+/opt/coe/cadence/XCELIUM/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/libuvmpli.so:uvm_pli_boot
 -timescale
 1ns/1ps
 -ACCESS
 +r
++UVM_TESTNAME=mm_corner_test
 -MESSAGES
 -XLMODE
 ./xcelium.d/run.lnx86.22.03.d
