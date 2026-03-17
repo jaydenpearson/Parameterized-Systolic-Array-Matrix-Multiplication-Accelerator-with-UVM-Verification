@@ -16,6 +16,7 @@ class mm_coverage extends uvm_subscriber #(mm_seq_item);
 
     // covers data value ranges for matrix A and B inputs
     covergroup cg_data_ranges;
+	option.per_instance = 1;
 
         // cover zero values in A
         cp_a_zero: coverpoint item.A[0][0] {
@@ -43,6 +44,7 @@ class mm_coverage extends uvm_subscriber #(mm_seq_item);
 
     // covers matrix pattern scenarios
     covergroup cg_matrix_patterns;
+	option.per_instance = 1;
 
         // identity matrix detection for A
         // checks if diagonal is all 1s and off-diagonal is all 0s
@@ -84,13 +86,15 @@ class mm_coverage extends uvm_subscriber #(mm_seq_item);
     // covers accumulator output ranges
     // ensures we have exercised small, mid, and large output values
     covergroup cg_result_ranges;
+	option.per_instance = 1;
 
         cp_result_corner: coverpoint item.result_C[0][0] {
             bins zero         = {0};
             bins sm           = {[1:255]};
             bins mid          = {[256:65535]};
-            bins lg           = {[65536:16777215]};
-            bins near_max     = {[16777216:$]};
+            bins lg           = {[65536:260100]};
+            // remove near_max bin since N=4 and max value of 255 means max is 260,100
+	    // bins near_max     = {[16777216:$]};
         }
 
     endgroup
@@ -103,6 +107,9 @@ class mm_coverage extends uvm_subscriber #(mm_seq_item);
         cg_data_ranges     = new();
         cg_matrix_patterns = new();
         cg_result_ranges   = new();
+	cg_data_ranges.start();
+	cg_matrix_patterns.start();
+	cg_result_ranges.start();
     endfunction
 
     // ----------------------------------------------------------------
@@ -124,6 +131,8 @@ class mm_coverage extends uvm_subscriber #(mm_seq_item);
         cg_data_ranges.sample();
         cg_matrix_patterns.sample();
         cg_result_ranges.sample();
+	// debug line below
+	// `uvm_info("COVERAGE_DEBUG", $sformatf("Sampled transaction - data_ranges: %.1f%% patterns: %.1f%% results: %.1f%%", cg_data_ranges.get_inst_coverage(), cg_matrix_patterns.get_inst_coverage(), cg_result_ranges.get_inst_coverage()), UVM_HIGH)
     endfunction
 
     // ----------------------------------------------------------------

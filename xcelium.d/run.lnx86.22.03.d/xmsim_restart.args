@@ -8,6 +8,8 @@
 /opt/coe/cadence/XCELIUM/tools/methodology/UVM/CDNS-1.1d
 -sv_lib
 /opt/coe/cadence/XCELIUM/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/libuvmpli.so
+-COVSCOPE
+worklib
 -COVOVERWRITE
 +UVM_TESTNAME=mm_regression_test
 -MESSAGES
@@ -17,7 +19,7 @@
 +EMGRLOG
 xrun.log
 -XLSTIME
-1773784300
+1773785507
 -XLKEEP
 -XLMODE
 ./xcelium.d/run.lnx86.22.03.d
@@ -31,4 +33,4 @@ xrun
 -XLVERSION
 "TOOL:	xrun	22.03-s012"
 -XLNAME
-./xcelium.d/run.lnx86.22.03.d/n01-zeus.olympus.ece.tamu.edu_2228120
+./xcelium.d/run.lnx86.22.03.d/n01-zeus.olympus.ece.tamu.edu_2254411

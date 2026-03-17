@@ -5,5 +5,7 @@
 +NoArgsToLog
 -COVERAGE
 all
+-COVSCOPE
+worklib
 -COVOVERWRITE
 -UPDATE

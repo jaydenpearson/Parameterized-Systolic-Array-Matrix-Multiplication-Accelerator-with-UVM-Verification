@@ -1,12 +1,12 @@
 xrun: 22.03-s012: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
-TOOL:	xrun	22.03-s012: Started on Mar 17, 2026 at 16:51:40 CDT
+TOOL:	xrun	22.03-s012: Started on Mar 17, 2026 at 17:11:47 CDT
 xrun
 	-sv
 	-uvm
 	-timescale 1ns/1ps
 	-access +r
 	-coverage all
-	-covdut tb_top
+	-covscope worklib
 	-covoverwrite
 	-incdir tb/uvm/top
 	-incdir tb/uvm/seq_items
@@ -22,6 +22,15 @@ xrun
 	rtl/mm_accelerator_top.sv
 	tb/uvm/top/tb_top.sv
 	+UVM_TESTNAME=mm_regression_test
+Recompiling... reason: file './tb/uvm/env/mm_coverage.sv' is newer than expected.
+	expected: Tue Mar 17 17:10:42 2026
+	actual:   Tue Mar 17 17:11:39 2026
+Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /opt/coe/cadence/XCELIUM/tools/methodology/UVM/CDNS-1.1d
+file: tb/uvm/top/tb_top.sv
+	package worklib.mm_uvm_pkg:sv
+		errors: 0, warnings: 0
+	module worklib.tb_top:sv
+		errors: 0, warnings: 0
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
 	Top level design units:
@@ -49,18 +58,18 @@ xmelab: *W,COVFHT: FSM hold transitions (transitions to the current state) are n
 	Enabling instrumentation for coverage types: block expression FSM toggle functional
 xmelab: *W,COVDCL: By default expression coverage is scored only for Verilog logical operators (|| and &&) and VHDL logical operators (OR, AND, NOR, and NAND), and is scored only in condition expressions. To score coverage for other operators and for expressions in other statements, use the "set_expr_coverable_operators" and "set_expr_coverable_statements" coverage configuration file commands with suitable options at elaboration.
 	Generating native compiled code:
-		worklib.pe:sv <0x03b56b33>
+		worklib.pe:sv <0x5fe17f93>
 			streams:   5, words:  2929
-		worklib.controller:sv <0x20eea266>
+		worklib.controller:sv <0x7a8d1176>
 			streams:   6, words:  4350
-		worklib.mm_accelerator_top:sv <0x366df82e>
+		worklib.mm_accelerator_top:sv <0x3136dc1f>
 			streams:   3, words:  1853
-		worklib.input_skew:sv <0x7b4b4d32>
+		worklib.input_skew:sv <0x1f457626>
 			streams:  10, words:  7197
-		worklib.systolic_array:sv <0x33d9ce3f>
+		worklib.systolic_array:sv <0x57b254d5>
 			streams:  13, words:  8171
-		worklib.mm_if:sv <0x28e119a8>
-			streams: 911, words: 828099
+		worklib.mm_if:sv <0x06450a74>
+			streams: 911, words: 828443
 xmelab: *W,COVNOEN: By default, toggle coverage is not supported for systemverilog enumerated nets and variables. To enable toggle coverage of these objects, specify the 'set_toggle_scoring -sv_enum' command in the coverage configuration file.
 logic [DATA_WIDTH-1:0] a_delay [N][N];
                              |
@@ -3993,13 +4002,13 @@ UVM_INFO tb/uvm/env/mm_scoreboard.sv(64) @ 41075000: uvm_test_top.env.scoreboard
 UVM_INFO tb/uvm/sequences/mm_sequences.sv(162) @ 41075000: uvm_test_top.env.agent.sequencer@@stress_seq [STRESS_SEQ] Completed 50 back-to-back transactions
 UVM_INFO tb/uvm/sequences/mm_sequences.sv(199) @ 41075000: uvm_test_top.env.agent.sequencer@@seq [REGRESSION_SEQ] Full regression complete
 UVM_INFO /opt/coe/cadence/XCELIUM/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_objection.svh(1268) @ 41175000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
-UVM_INFO tb/uvm/env/mm_coverage.sv(141) @ 41175000: uvm_test_top.env.coverage [COVERAGE] 
+UVM_INFO tb/uvm/env/mm_coverage.sv(150) @ 41175000: uvm_test_top.env.coverage [COVERAGE] 
 ========================================
   COVERAGE SUMMARY
   Data Ranges:     84.0%
   Matrix Patterns: 100.0%
-  Result Ranges:   80.0%
-  Overall:         88.0%
+  Result Ranges:   100.0%
+  Overall:         94.7%
 ========================================
 UVM_INFO tb/uvm/env/mm_scoreboard.sv(84) @ 41175000: uvm_test_top.env.scoreboard [SCOREBOARD] 
 ========================================
@@ -4041,20 +4050,17 @@ Simulation complete via $finish(1) at time 41175 NS + 45
 /opt/coe/cadence/XCELIUM/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_root.svh:457     $finish;
 xcelium> exit
 xmsim: *N,COVCGN: Coverage configuration file command "set_covergroup -new_instance_reporting" can be specified to improve the scoping and naming of covergroup instances. It may be noted that subsequent merging of a coverage database saved with this command and a coverage database saved without this command is not allowed.
-xmsim: *W,CGPIZE: Instance coverage for covergroup instance "cg_data_ranges" will not be dumped to database as per_instance option value is set to 0:./tb/uvm/env/mm_coverage.sv, 18.
-xmsim: *W,CGPIZE: Instance coverage for covergroup instance "cg_matrix_patterns" will not be dumped to database as per_instance option value is set to 0:./tb/uvm/env/mm_coverage.sv, 45.
-xmsim: *W,CGPIZE: Instance coverage for covergroup instance "cg_result_ranges" will not be dumped to database as per_instance option value is set to 0:./tb/uvm/env/mm_coverage.sv, 86.
-xmsim: *W,CGPIZE: Instance coverage for covergroup instance "cg_data_ranges" will not be dumped to database as per_instance option value is set to 0:./tb/uvm/env/mm_coverage.sv, 18.
-xmsim: *W,CGPIZE: Instance coverage for covergroup instance "cg_matrix_patterns" will not be dumped to database as per_instance option value is set to 0:./tb/uvm/env/mm_coverage.sv, 45.
-xmsim: *W,CGPIZE: Instance coverage for covergroup instance "cg_result_ranges" will not be dumped to database as per_instance option value is set to 0:./tb/uvm/env/mm_coverage.sv, 86.
+xmsim: *W,CGDEFN: Default name "worklib.uvm_pkg::.cg_data_ranges" will be generated for covergroup instance "cg_data_ranges" as the name of the covergroup instance is not specified explicitly: ./tb/uvm/env/mm_coverage.sv, 18.
+xmsim: *W,CGDEFN: Default name "worklib.uvm_pkg::.cg_matrix_patterns" will be generated for covergroup instance "cg_matrix_patterns" as the name of the covergroup instance is not specified explicitly: ./tb/uvm/env/mm_coverage.sv, 46.
+xmsim: *W,CGDEFN: Default name "worklib.uvm_pkg::.cg_result_ranges" will be generated for covergroup instance "cg_result_ranges" as the name of the covergroup instance is not specified explicitly: ./tb/uvm/env/mm_coverage.sv, 88.
 
 coverage setup:
   workdir  :  ./cov_work
   dutinst  :  tb_top(tb_top)
-  scope    :  scope
+  scope    :  worklib
   testname :  test
 
 coverage files:
-  model(design data) :  ./cov_work/scope/icc_64024ae7_2d0c289a.ucm (reused)
-  data               :  ./cov_work/scope/test/icc_64024ae7_2d0c289a.ucd
-TOOL:	xrun	22.03-s012: Exiting on Mar 17, 2026 at 16:51:45 CDT  (total: 00:00:05)
+  model(design data) :  ./cov_work/worklib/icc_64024ae7_1738cbc9.ucm (reused)
+  data               :  ./cov_work/worklib/test/icc_64024ae7_1738cbc9.ucd
+TOOL:	xrun	22.03-s012: Exiting on Mar 17, 2026 at 17:11:50 CDT  (total: 00:00:03)

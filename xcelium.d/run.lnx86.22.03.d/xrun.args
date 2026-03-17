@@ -10,8 +10,8 @@
 +r
 -coverage
 all
--covdut
-tb_top
+-covscope
+worklib
 -covoverwrite
 -incdir
 tb/uvm/top

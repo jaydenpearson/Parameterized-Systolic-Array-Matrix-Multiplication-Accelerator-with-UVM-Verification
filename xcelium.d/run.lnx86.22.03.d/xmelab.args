@@ -10,8 +10,6 @@
 +r
 -COVERAGE
 all
--COVDUT
-tb_top
 +UVM_TESTNAME=mm_regression_test
 -MESSAGES
 -XLMODE
