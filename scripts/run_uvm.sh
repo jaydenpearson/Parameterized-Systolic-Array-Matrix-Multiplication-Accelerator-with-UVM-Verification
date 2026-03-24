@@ -30,6 +30,34 @@ xrun -sv -uvm \
      rtl/systolic_array.sv \
      rtl/controller.sv \
      rtl/mm_accelerator_top.sv \
+     formal/pe_assertions.sv \
+     formal/bind_assertions.sv \
      tb/uvm/top/tb_top.sv \
      +UVM_TESTNAME=$TEST \
-     +NUM_TRANSACTIONS=$NUM_TRANSACTIONS
+     +NUM_TRANSACTIONS=$NUM_TRANSACTIONS \
+     2>&1 | tee run.log
+
+# -----------------------------------------------------------------------
+# Check for assertion failures and errors in the log
+# -----------------------------------------------------------------------
+echo ""
+echo "========================================"
+echo "POST-RUN CHECK"
+echo "========================================"
+
+
+SIM_ERRORS=$(grep -c "^\*E\|^\*F\|assert failed" run.log)
+UVM_ERRORS=$(grep "UVM_ERROR :" run.log | awk '{print $NF}' | grep -v "^0$" | wc -l)
+UVM_FATALS=$(grep "UVM_FATAL :" run.log | awk '{print $NF}' | grep -v "^0$" | wc -l)
+TOTAL=$((SIM_ERRORS + UVM_ERRORS +UVM_FATALS))
+
+if [ "$TOTAL" -eq 0 ]; then
+    echo "PASS -- no errors or assertion failures found"
+else
+    echo "FAIL -- $TOTAL error(s) found:"
+    grep "^\*E\|^\*F\|assert failed" run.log
+    grep "UVM_ERROR :\|UVM_FATAL :" run.log
+fi
+
+echo "========================================"
+

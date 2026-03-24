@@ -1,5 +1,0 @@
-IMC(64): 22.03-s001: (c) Copyright 1995-2022 Cadence Design Systems Inc - Simulator version: 22.03-s012 - Coverage engine version: 22.03-s012
-imc: *I,RUNLD: Successfully loaded run cov_work/scope/test.
-Starting batch mode
-imc> report_metrics -out coverage_report.txt -detail
-imc: *E,report.dir_exist: Report dir '/home/ugrads/j/jaydenpearson24/AcceleratorUVM/Parameterized-Systolic-Array-Matrix-Multiplication-Accelerator-with-UVM-Verification/coverage_report.txt' already exist.

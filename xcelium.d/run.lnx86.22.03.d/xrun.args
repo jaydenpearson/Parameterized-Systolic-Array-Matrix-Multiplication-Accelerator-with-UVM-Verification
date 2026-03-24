@@ -33,6 +33,8 @@ rtl/input_skew.sv
 rtl/systolic_array.sv
 rtl/controller.sv
 rtl/mm_accelerator_top.sv
+formal/pe_assertions.sv
+formal/bind_assertions.sv
 tb/uvm/top/tb_top.sv
 +UVM_TESTNAME=mm_regression_test
 +NUM_TRANSACTIONS=200

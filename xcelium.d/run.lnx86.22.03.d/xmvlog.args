@@ -29,6 +29,8 @@ rtl/input_skew.sv
 rtl/systolic_array.sv
 rtl/controller.sv
 rtl/mm_accelerator_top.sv
+formal/pe_assertions.sv
+formal/bind_assertions.sv
 tb/uvm/top/tb_top.sv
 -CDSLIB
 ./xcelium.d/run.lnx86.22.03.d/cdsrun.lib
