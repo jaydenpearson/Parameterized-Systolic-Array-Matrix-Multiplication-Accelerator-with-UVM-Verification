@@ -24,3 +24,16 @@ bind pe pe_assertions #(
     .valid_out(valid_out),
     .clear    (clear)
 );
+
+bind controller controller_assertions #(
+    .N (N)
+) ctrl_assert_inst (
+    .clk              (clk),
+    .rst_n            (rst_n),
+    .start            (start),
+    .valid_in_upstream(valid_in_upstream),
+    .ready            (ready),
+    .valid_in         (valid_in),
+    .result_valid     (result_valid),
+    .clear            (clear)
+);
