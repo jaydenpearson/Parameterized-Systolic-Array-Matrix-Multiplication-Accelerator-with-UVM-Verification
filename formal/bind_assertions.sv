@@ -37,3 +37,19 @@ bind controller controller_assertions #(
     .result_valid     (result_valid),
     .clear            (clear)
 );
+
+bind mm_accelerator_top top_assertions #(
+    .N          (N),
+    .DATA_WIDTH (DATA_WIDTH),
+    .ACCUM_WIDTH(ACCUM_WIDTH)
+) top_assert_inst (
+    .clk              (clk),
+    .rst_n            (rst_n),
+    .start            (start),
+    .a_in             (a_in),
+    .b_in             (b_in),
+    .valid_in_upstream(valid_in_upstream),
+    .ready            (ready),
+    .result_valid     (result_valid),
+    .result           (result)
+);

@@ -32,6 +32,7 @@ xrun -sv -uvm \
      rtl/mm_accelerator_top.sv \
      formal/pe_assertions.sv \
      formal/controller_assertions.sv \
+     formal/top_assertions.sv \
      formal/bind_assertions.sv \
      tb/uvm/top/tb_top.sv \
      +UVM_TESTNAME=$TEST \

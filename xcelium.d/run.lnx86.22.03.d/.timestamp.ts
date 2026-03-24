@@ -1,9 +1,10 @@
+1774317125 /home/ugrads/j/jaydenpearson24/AcceleratorUVM/Parameterized-Systolic-Array-Matrix-Multiplication-Accelerator-with-UVM-Verification/formal/top_assertions.sv
 1773446454 /home/ugrads/j/jaydenpearson24/AcceleratorUVM/Parameterized-Systolic-Array-Matrix-Multiplication-Accelerator-with-UVM-Verification/rtl/input_skew.sv
 1773783669 /home/ugrads/j/jaydenpearson24/AcceleratorUVM/Parameterized-Systolic-Array-Matrix-Multiplication-Accelerator-with-UVM-Verification/rtl/mm_accelerator_top.sv
 1774315372 /home/ugrads/j/jaydenpearson24/AcceleratorUVM/Parameterized-Systolic-Array-Matrix-Multiplication-Accelerator-with-UVM-Verification/formal/pe_assertions.sv
-1774316937 /home/ugrads/j/jaydenpearson24/AcceleratorUVM/Parameterized-Systolic-Array-Matrix-Multiplication-Accelerator-with-UVM-Verification/formal/bind_assertions.sv
-1774316835 /home/ugrads/j/jaydenpearson24/AcceleratorUVM/Parameterized-Systolic-Array-Matrix-Multiplication-Accelerator-with-UVM-Verification/formal/controller_assertions.sv
+1774317165 /home/ugrads/j/jaydenpearson24/AcceleratorUVM/Parameterized-Systolic-Array-Matrix-Multiplication-Accelerator-with-UVM-Verification/formal/bind_assertions.sv
 1773782753 /home/ugrads/j/jaydenpearson24/AcceleratorUVM/Parameterized-Systolic-Array-Matrix-Multiplication-Accelerator-with-UVM-Verification/rtl/systolic_array.sv
+1774316835 /home/ugrads/j/jaydenpearson24/AcceleratorUVM/Parameterized-Systolic-Array-Matrix-Multiplication-Accelerator-with-UVM-Verification/formal/controller_assertions.sv
 1773782709 /home/ugrads/j/jaydenpearson24/AcceleratorUVM/Parameterized-Systolic-Array-Matrix-Multiplication-Accelerator-with-UVM-Verification/rtl/pe.sv
 1773782910 /home/ugrads/j/jaydenpearson24/AcceleratorUVM/Parameterized-Systolic-Array-Matrix-Multiplication-Accelerator-with-UVM-Verification/rtl/controller.sv
 1774315925 /home/ugrads/j/jaydenpearson24/AcceleratorUVM/Parameterized-Systolic-Array-Matrix-Multiplication-Accelerator-with-UVM-Verification/tb/uvm/top/tb_top.sv
